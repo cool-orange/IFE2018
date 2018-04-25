@@ -1,9 +1,6 @@
 <!DOCTYPE <html>
 <head>
-<style type="text/css">
-p{text-indent:2em;
-line-height: 20px;}
-</style>	
+
 
 </head>
 <body>
