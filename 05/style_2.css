@@ -1,0 +1,41 @@
+body {
+	margin: 0 auto;
+	max-width: 100%;
+	min-width: 500px;
+	width: 80%;
+}
+p {
+	margin: 0px;
+	font-weight: 500px;
+}
+h4 {
+	display: inline-block;
+	margin: 2px 25px 2px 0px;
+}
+h1 {
+	position: relative;
+    left: 30%;
+    top: 5%;
+    font-weight: 400;
+}
+#sidebar, #information{
+	float: left;	
+	display: inline-block;
+	height: 725px;
+	max-width:  48%;
+	margin: 5px;
+}
+#sidebar
+{
+	width: 20%;
+	color: white;
+	background-color: #3f8ef9;
+}
+h4 + p {
+	margin-top: 5px;
+}
+h4 p {
+	display: inline-block;
+	margin-left: 10px;
+	font-weight: 500;
+}
