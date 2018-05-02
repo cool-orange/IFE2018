@@ -4,6 +4,10 @@ body,p {
 
 h4 {
 	display:inline-block;
-	margin:2px 25px 2px 0px;
-	
+	margin:2px 25px 2px 0px;	
+}
+h4 p {
+	display: inline-block;
+	margin-left: 10px;
+	font-weight: 500;
 }
