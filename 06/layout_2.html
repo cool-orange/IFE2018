@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>layout_2</title>
+	<style type="text/css" media="screen">
+	html * {
+		margin:0px;
+	}
+	p {
+		font-size: 15px;
+	}
+	#header h3 {
+		position: relative;
+        left: 200px;
+        top: 15px;
+        display: inline;
+        font-family: sans-serif;
+        color: white;
+        font-weight: 500;
+    }
+    #header ul {
+    	position: relative;
+        left:1200px;
+        bottom: 15px;
+    }
+    #header li {
+    	float: left;
+        list-style-type: none;
+        margin-right: 5px;
+        width: 60px;   
+    }
+    #header li a {
+    	display: inline-block;
+    	font-size: 14px;
+        text-decoration: underline;
+    	color:white;
+    }
+    #nav li {
+    	width:100px;
+    	float:left;
+    	list-style-type:none;
+    	padding:10px 5px;
+    	border:1px solid #e1e1e1;
+    	border-radius: 15px 15px 0 0;
+    	text-align: center;
+    	background-color:#eeeeee;
+    }
+    #nav li:hover {
+    	background-color: white;
+    	border-bottom: 0;
+    }
+    .contentbox{
+    	margin:0 7.5px 0 7.5px;
+    	padding:80px;
+    	text-align: center;
+    	white-space: nowrap;
+    	line-height: 45px;
+    	height: 45px;
+    	border: 1px solid #cccccc;
+    }
+    .box {
+    	position: relative;
+    	float: left;
+    	left: 1270px;
+    	top:290px;
+    	height: 30px;
+    	width: 22px;
+    	font-size: 10px;
+    	font-weight:200;
+    	line-height: 30px;
+    	text-align: center;
+    	margin-right: 2px;
+    	border: 1px solid black;
+    	background-color: #b2dd99;   	
+    }
+    .box:hover {
+    	background-color:#e0f1d6;
+    	transform:scaleY(1.3);
+    	transform-origin:bottom center;
+    	transition: all.2s;
+    }
+    #header {
+    	position:fixed;
+	    top:0px;
+	    width:100%;
+        height: 60px; 
+        background: #333333;
+        z-index:1;
+    }
+    #banner {
+    	width:100%;
+    	height:335px;
+    	background-color:#66bb33;
+    }
+    #nav {
+    	position:relative;
+    	width:100%;
+    	height:60px;
+    	border :1px solid #dddddd;
+    	border-top:0; 
+    }
+    .content {
+    	display:flex;
+    	justify-content:center;
+    	margin:15px auto;
+    	width: 960px;
+    }
+    #footer {
+    	width:100%;
+        height: 100px; 
+        background: #333333;
+
+    }
+</style>
+</head>
+
+<body>
+	<div id="header">
+		<h3>Logo</h3>
+		<ul>
+			<li><a href="https://github.com/cool-orange/MYIFE">Github</a></li>
+			<li><a href="#" >Register</a></li>
+			<li><a href="#">Login</a></li>
+		</ul>
+	</div>
+	<div id="banner">
+		<div class="box">1</div>
+        <div class="box">2</div>
+	    <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+    <div id="nav">
+    	<ul>
+    		<section style="position:absolute;top:19px;left:285px;">
+    			<li>HOME</li>
+    			<li>PROFILE</li>
+    			<li>ABOUT</li>
+    		</section>
+    	</ul>
+    </div>
+    <div class="content">
+    	<div class="contentbox" style="flex:1;"><p>This is Content 1</p></div>
+    	<div class="contentbox" style="flex:1;"><p>MaybeContent 2</p></div>
+    	<div class="contentbox" style="flex:1;"><p>Content 3</p></div>
+    </div>
+     <div class="content">
+    	<div class="contentbox" style="flex:1;"><p>Content 4</p></div>
+    	<div class="contentbox" style="flex:1;"><p>Content 5</p></div>
+    	<div class="contentbox" style="flex:1;"><p>Content 6</p></div>
+    	<div class="contentbox" style="flex:1;"><p>Content 7</p></div>
+    </div>
+     <div class="content">
+    	<div class="contentbox" style="flex:1;"><p>Content 8</p></div>
+    	<div class="contentbox" style="flex:1;"><p>Content 9</p></div>
+    	<div class="contentbox" style="flex:1;"><p>Content 10</p></div>
+    </div>
+    <div id="footer">
+    	<h3 style="text-align: center;line-height:100px;color:white;font-size:10px;font-size: 13px;
+    font-weight: 200;">©2018 ife.baidu.com</h3>
+    </div>
+</body>
+
+</html>
