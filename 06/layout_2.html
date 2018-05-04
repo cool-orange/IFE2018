@@ -50,7 +50,8 @@
     	border-bottom: 0;
     }
     .contentbox{
-    	margin:0 7.5px 0 7.5px;
+        flex:1;
+    	margin:7.5px 7.5px 0 0;
     	padding:80px;
     	text-align: center;
     	white-space: nowrap;
@@ -101,8 +102,8 @@
     }
     .content {
     	display:flex;
-    	justify-content:center;
-    	margin:15px auto;
+        justify-content: center;
+    	margin:0 auto;
     	width: 960px;
     }
     #footer {
@@ -139,20 +140,20 @@
     	</ul>
     </div>
     <div class="content">
-    	<div class="contentbox" style="flex:1;"><p>This is Content 1</p></div>
-    	<div class="contentbox" style="flex:1;"><p>MaybeContent 2</p></div>
-    	<div class="contentbox" style="flex:1;"><p>Content 3</p></div>
+    	<div class="contentbox" style="flex:1 25%"><p>This is Content 1</p></div>
+    	<div class="contentbox" style="flex:1 25%"><p>MaybeContent 2</p></div>
+    	<div class="contentbox" ><p>Content 3</p></div>
     </div>
      <div class="content">
-    	<div class="contentbox" style="flex:1;"><p>Content 4</p></div>
-    	<div class="contentbox" style="flex:1;"><p>Content 5</p></div>
-    	<div class="contentbox" style="flex:1;"><p>Content 6</p></div>
-    	<div class="contentbox" style="flex:1;"><p>Content 7</p></div>
+    	<div class="contentbox"  ><p>Content 4</p></div>
+    	<div class="contentbox" ><p>Content 5</p></div>
+    	<div class="contentbox" ><p>Content 6</p></div>
+    	<div class="contentbox" ><p>Content 7</p></div>
     </div>
-     <div class="content">
-    	<div class="contentbox" style="flex:1;"><p>Content 8</p></div>
-    	<div class="contentbox" style="flex:1;"><p>Content 9</p></div>
-    	<div class="contentbox" style="flex:1;"><p>Content 10</p></div>
+     <div class="content " style="margin-bottom:7.5px;">
+    	<div class="contentbox" ><p>Content 8</p></div>
+    	<div class="contentbox" ><p>Content 9</p></div>
+    	<div class="contentbox" ><p>Content 10</p></div>
     </div>
     <div id="footer">
     	<h3 style="text-align: center;line-height:100px;color:white;font-size:10px;font-size: 13px;
