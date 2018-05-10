@@ -1,0 +1,283 @@
+html * {
+	margin:0px;
+	padding:0px;
+}
+h1,h2,h4,h5,p {
+	text-align: center;
+	font-family: Montserrat;
+	color: #ffffff;
+}
+h5 {
+	position: relative;
+	top:85px;
+	font-weight: 800;
+    letter-spacing: 1.5px;
+    font-family: Montserrat light;
+}
+#Firstedge h2 {
+	position: relative;
+    top: 200px;
+    text-align: center;
+    font-size: 62px;
+}
+#Firstedge p {
+	position: relative;
+    top: 280px;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 20px;
+    color: #c1c0bd;
+
+}
+#Firstedge {
+	margin:0 auto;
+    width: 100%;
+    height: 993px;
+    background: linear-gradient(to bottom,rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+                url(https://s1.ax1x.com/2018/05/07/Ca8TyT.jpg),
+                no-repeat;
+}
+#ThreeEdge {
+	position: relative;
+    top:250px;
+	width :100%;
+	height:800px;
+	background: linear-gradient(to bottom,rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+                url(https://s1.ax1x.com/2018/05/08/CaOwrj.jpg);
+}
+#ThreeEdge > h1 {
+	display: inline;
+    position: relative;
+    left: 280px;
+    top:180px;
+}
+#ThreeEdge p {
+	display: inline-table;
+	position: relative;
+	left: 225px;
+	top:250px;
+	line-height: 1.5;
+    color:#c1c3c1;
+}
+#ThreeEdge input[type=button] {
+	margin: 0px 20px 0px 0px;
+    position: relative;
+    left: -125px;
+    top: 430px;
+    width: calc(50% - 500px);
+}
+#ThreeEdge img {
+	width:90%;
+	height:90%;
+	float:right;
+	padding:25px 0px;
+}
+.account {
+	margin:0 auto;
+	position: relative;
+    top: 350px;
+	width: 969px;
+	height: 252px;
+	border: 1px solid #979593;
+}
+.account h4 {
+	position: absolute;
+	top:35px;
+    left: 375px;
+	font-size: 16px;
+	letter-spacing: 0.5px;
+}
+.account h5 {
+	position: absolute;
+	top: 65px;
+    left: 410px;
+    letter-spacing: 0.5px;
+	font-size: 12px;
+    color: #979593;
+}
+.image { 
+	margin:0 auto;
+	width:65%;
+}
+.image h3{
+	position: relative;
+    top: 120px;
+	display: inline-block;
+	font-size:15px;
+	font-family: Montserrat light;
+}
+.image p {
+	margin:140px 0 70px 0;
+	text-align: left;
+	font-size:12px;
+    color: #000000;
+}
+.crew {
+	margin:0 auto;
+	position: relative;
+	top:140px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width:80%;
+	padding: 20px;
+}
+.crew img {
+	transform: scale(0.9);
+}
+#LastPage {
+	margin:0 auto;
+	display: flex;
+	justify-content: center;
+	width:80%;
+	font-family: Montserrat;
+}
+#LastPage div input[type=text] {
+	margin: 15px;
+    width: calc(100% - 90px);
+	padding: 15px;
+	font-size: 15px;
+    color: #a7a7a7;
+    font-family: Montserrat;
+    border: 1px solid #d4d3d3;
+    background-color: transparent;
+}
+#LastPage div input[type=button] {
+	margin: 15px;
+    width: calc(100% - 60px);
+	padding: 15px;
+	font-size: 15px;
+	background-color: black;
+	color: #ffffff;
+	border:1px solid black;
+	border-radius: 5px;
+}
+#LastPage div input[type=text]:nth-of-type(3) {
+	padding: 15px 15px 70px 15px;
+}
+.information {
+	position: relative;
+	top:50px;
+	border :1px solid #e7e7e7;
+	width:44%;
+}
+.information h5 {
+	margin:20px;
+	position: relative;
+    top: 10px;
+	color:#000000;
+}
+.Contact {
+	position: relative;
+	top:50px;
+    width:50%;
+}
+.Contact h1 {
+	margin: 40px 0px 30px 0px;
+	color: #000000;
+
+}
+.Contact p {
+	margin-left: 35%;
+    text-align: left;
+	color: #000000;
+}
+.Con {
+	margin: 0px 0px 20px 0px;
+	position: relative;
+    left: 165px;
+    top: 55px;
+}
+.Con span {
+	position: absolute;
+    top: 10px;
+    left: 40px;
+    font-weight: 800;
+}
+.Con img {
+	position: relative;
+    top: 10px;
+	padding-bottom: 5px;
+}
+#footer {
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	justify-content: center;
+	top: 200px;
+	width: 100%;
+	height:350px;
+	background:#000000; 
+}
+#footer ul {
+	margin: 65px 0px;
+	width:20%;
+	color:#ffffff;
+	font-family: Montserrat light;
+}
+#footer ul li:nth-child(1){
+	color:#ffffff;
+	font-size:15px;
+}
+#footer li {
+	list-style: none;
+	padding:10px 0;
+	font-size:12px;
+	color: #6f6f72;
+}
+li + img {
+	margin: 30px 0;
+}
+article,section {
+	display: flex;
+	flex-wrap: wrap;
+}
+section > div {
+	width:36%;
+	margin: 30px 70px 30px 0px;
+}
+article div {
+	width:30%;
+	text-align: center;
+}
+article div p {
+	margin-top: 35px;
+	color: #000000;
+	text-align: center;
+}
+
+section div p {
+	position: relative;
+    left: 74px;
+    bottom: 20px;
+	color: #000000;
+	text-align: left;
+}
+section div h3 {
+	position: relative;
+	bottom:35px;
+	left:20px;
+	display: inline-block;
+	font-family: Montserrat light;
+}
+#Firstedge input[type=text] {
+	width: calc(100% - 700px);
+    padding: 15px;
+    font-size: 18px;
+    color: #ffffff;
+    font-family: Montserrat;
+    border: 1px solid #979593;
+    background-color: transparent;
+}
+input[type=button] {
+	width: calc(100% - 840px);
+	padding: 20px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #000000;
+    font-family: Montserrat;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background: #ffffff;
+}
