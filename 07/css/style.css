@@ -1,93 +1,96 @@
 html * {
-	margin:0px;
-	padding:0px;
+	margin: 0px;
+	padding: 0px;
 }
-h1,h2,h4,h5,p {
+body {
+	min-width: 1000px;
+	max-width: 1600px;
+}
+h1,h2,h3,h4,h5,p,input {
+	margin: 0 auto;
 	text-align: center;
 	font-family: Montserrat;
 	color: #ffffff;
 }
-h5 {
-	position: relative;
-	top:85px;
-	font-weight: 800;
-    letter-spacing: 1.5px;
-    font-family: Montserrat light;
+article,section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
-#Firstedge h2 {
-	position: relative;
-    top: 200px;
-    text-align: center;
-    font-size: 62px;
+input[type=button] {
+	padding: 20px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #000000;
+    font-family: Montserrat;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background: #ffffff;
 }
-#Firstedge p {
-	position: relative;
-    top: 280px;
-    text-align: center;
-    line-height: 1.6;
-    font-size: 20px;
-    color: #c1c0bd;
-
+.line,.line2 {
+	width:100%;
+	height:2px;
+	background:#e7e7e7;
 }
-#Firstedge {
-	margin:0 auto;
+.line {
+	margin-top:525px;
+}
+.line2 {
+	margin-top:200px;
+}
+#Firstpage {
+	margin: 0 auto;
     width: 100%;
     height: 993px;
     background: linear-gradient(to bottom,rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
                 url(https://s1.ax1x.com/2018/05/07/Ca8TyT.jpg),
                 no-repeat;
 }
-#ThreeEdge {
+#Firstpage h2 {
 	position: relative;
-    top:250px;
-	width :100%;
-	height:800px;
-	background: linear-gradient(to bottom,rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
-                url(https://s1.ax1x.com/2018/05/08/CaOwrj.jpg);
+    top: 200px;
+    font-size: 62px;
 }
-#ThreeEdge > h1 {
-	display: inline;
+#Firstpage p {
+	margin: 0 auto;
     position: relative;
-    left: 280px;
-    top:180px;
+    top: 280px;
+    width: 53%;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 20px;
+    color: #c1c0bd;
 }
-#ThreeEdge p {
-	display: inline-table;
-	position: relative;
-	left: 225px;
-	top:250px;
-	line-height: 1.5;
-    color:#c1c3c1;
+#Firstpage input[type=text] {
+	width: calc(100% - 700px);
+    padding: 15px;
+    font-size: 15px;
+    text-align: left;
+    border: 1px solid #979593;
+    background-color: transparent;
+    color: #ffffff;
 }
-#ThreeEdge input[type=button] {
-	margin: 0px 20px 0px 0px;
-    position: relative;
-    left: -125px;
-    top: 430px;
-    width: calc(50% - 500px);
+#Firstpage input[type=button] {
+	margin-left: 20px;
 }
-#ThreeEdge img {
-	width:90%;
-	height:90%;
-	float:right;
-	padding:25px 0px;
-}
-.account {
+#Firstpage .account {
 	margin:0 auto;
 	position: relative;
     top: 350px;
 	width: 969px;
 	height: 252px;
 	border: 1px solid #979593;
+	overflow: hidden;
 }
-.account h4 {
+#Firstpage .account h4 {
 	position: absolute;
-	top:35px;
+	top: 35px;
     left: 375px;
 	font-size: 16px;
 	letter-spacing: 0.5px;
 }
-.account h5 {
+#Firstpage .account h5 {
 	position: absolute;
 	top: 65px;
     left: 410px;
@@ -95,24 +98,176 @@ h5 {
 	font-size: 12px;
     color: #979593;
 }
-.image { 
-	margin:0 auto;
-	width:65%;
+#Firstpage .Fir_btn {
+	padding: 150px 100px 100px;
+    width: calc(100% - -10px);
 }
-.image h3{
+#Secondpage h5 {
 	position: relative;
-    top: 120px;
+	top: 85px;
+	font-weight: 800;
+    letter-spacing: 1.5px;
+    font-family: Montserrat light;
+    color: #000000;
+}
+#Secondpage h1 {
+	position: relative;
+	top: 95px;
+	width: 40%;
+	font-weight: 800;
+	color:#000000;
+} 
+#Secondpage section {
+	position: relative;
+	top: 60px;
+}
+#Secondpage section > div {
+	position: relative;
+	width:32%;
+	margin: 60px 30px 0px 40px;
+    padding: 70px 0px 0px 0px;
+}
+#Secondpage  p {
+	position: absolute;
+    left: 75px;
+	color: #000000;
+	text-align: left;
+	width:80%;
+}
+#Secondpage h3 {
+	position: absolute;
+    left: 75px;
 	display: inline-block;
+	font-family: Montserrat light;
+	color: #000000;
+}
+#Threepage {
+	display: flex;
+	position: relative;
+    top:250px;
+	width :100%;
+	height:800px;
+	background: linear-gradient(to bottom,rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+                url(https://s1.ax1x.com/2018/05/08/CaOwrj.jpg);
+}
+#Threepage .Thr_left,.Thr_right{
+	position: relative;
+	width:50%;
+}
+#Threepage  h1 {
+	width: 60%;
+	position: absolute;
+    left: 220px;
+    text-align: left;
+    top: 110px;
+}
+#Threepage p {
+	display: inline-table;
+	position: absolute;
+	left: 225px;
+	top:250px;
+	line-height: 1.5;
+	text-align: left;
+    color:#c1c3c1;
+}
+#Threepage .Thr_btn {
+    position: absolute;
+    left: 215px;
+    top: 450px;
+    width: 100%
+}
+#Threepage input[type=button] {
+	margin: 0px 20px 0px 0px;
+    width: 270px;
+}
+#Threepage .Thr_right .frame {
+	width: 70%;
+	height: 500px;
+	position: absolute;
+    right:0px;
+    top: 60px;	
+	border: 1px solid #939493;
+	border-radius: 20px;
+}
+.frame img {
+	float: right;
+    margin-top: 50px;
+    width: 80%;
+}
+#Fourpage h1 {
+	position: relative;
+	top: 335px;
+	text-align: center;
+	color: #000;
+}
+#Fourpage article {
+	position: relative;
+	top: 400px;
+}
+#Fourpage article div {
+	width:30%;
+	text-align: center;
+}
+#Fourpage article div p {
+	width:60%;
+	margin-top: 35px;
+	color: #000000;
+	text-align: center;
+}
+#Fivepage .Graphic {
+	position: relative;
+	width:65%;
+	height:400px;
+	margin: 100px auto;
+}
+#Fivepage  h3{
+	display: inline-block;
+	text-align: left;
 	font-size:15px;
 	font-family: Montserrat light;
+	color:#000000;
 }
-.image p {
-	margin:140px 0 70px 0;
+#Fivepage .Graphic:nth-child(1) h3{
+    position: absolute;
+    top: 120px;
+    right: 35px;
+}
+#Fivepage .Graphic:nth-child(2) h3{
+    position: absolute;
+    top:180px;
+
+}
+#Fivepage .Graphic p {
 	text-align: left;
 	font-size:12px;
     color: #000000;
 }
-.crew {
+#Fivepage .Graphic:nth-child(1) p {
+	position: absolute;
+    right: 0px;
+    bottom: 110px;
+}
+#Fivepage .Graphic:nth-child(2) p {
+	position: absolute;
+	top:250px;
+   
+}
+#Fivepage .Graphic:nth-child(2) img {
+	position: absolute;
+	right:0px;
+}
+#Sixpage h1 {
+	position: relative;
+	top:40px;
+	color:#000000;
+}
+#Sixpage p {
+	position:relative;
+	top:50px;
+	line-height: 1.3;
+	color:#acacac;
+}
+#Sixpage .crew {
 	margin:0 auto;
 	position: relative;
 	top:140px;
@@ -155,38 +310,44 @@ h5 {
 #LastPage div input[type=text]:nth-of-type(3) {
 	padding: 15px 15px 70px 15px;
 }
-.information {
+#LastPage .information {
 	position: relative;
 	top:50px;
+	left:35px;
 	border :1px solid #e7e7e7;
-	width:44%;
+	width:35%;
 }
-.information h5 {
+#LastPage .information h5 {
 	margin:20px;
 	position: relative;
     top: 10px;
 	color:#000000;
 }
-.Contact {
+#LastPage .Contact {
 	position: relative;
 	top:50px;
-    width:50%;
+    width:44%;
 }
-.Contact h1 {
+#LastPage .Contact h1 {
+	position: absolute;
+    left: 160px;
 	margin: 40px 0px 30px 0px;
 	color: #000000;
 
 }
-.Contact p {
-	margin-left: 35%;
+#LastPage .Contact p {
+	margin-left: 188px;
+    position: relative;
+    left: -27px;
+    top: 90px;
     text-align: left;
-	color: #000000;
+    color: #000000;
 }
 .Con {
-	margin: 0px 0px 20px 0px;
+	margin: 35px 0px 20px 0px;
 	position: relative;
     left: 165px;
-    top: 55px;
+    top: 115px;
 }
 .Con span {
 	position: absolute;
@@ -225,59 +386,10 @@ h5 {
 	font-size:12px;
 	color: #6f6f72;
 }
-li + img {
+#footer li + img {
 	margin: 30px 0;
 }
-article,section {
-	display: flex;
-	flex-wrap: wrap;
-}
-section > div {
-	width:36%;
-	margin: 30px 70px 30px 0px;
-}
-article div {
-	width:30%;
-	text-align: center;
-}
-article div p {
-	margin-top: 35px;
-	color: #000000;
-	text-align: center;
-}
 
-section div p {
-	position: relative;
-    left: 74px;
-    bottom: 20px;
-	color: #000000;
-	text-align: left;
-}
-section div h3 {
-	position: relative;
-	bottom:35px;
-	left:20px;
-	display: inline-block;
-	font-family: Montserrat light;
-}
-#Firstedge input[type=text] {
-	width: calc(100% - 700px);
-    padding: 15px;
-    font-size: 18px;
-    color: #ffffff;
-    font-family: Montserrat;
-    border: 1px solid #979593;
-    background-color: transparent;
-}
-input[type=button] {
-	width: calc(100% - 840px);
-	padding: 20px;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: #000000;
-    font-family: Montserrat;
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    background: #ffffff;
-}
+
+
+
