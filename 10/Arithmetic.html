@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="first-number" type="" value="0" placeholder="第一个数字">
+    <input id="second-number" type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+    <script>
+        document.getElementById("add-btn").onclick=function() {
+            try {
+                var Fnum=Number(document.getElementById("first-number").value);
+                var Snum=Number(document.getElementById("second-number").value);
+                if(isNaN(Fnum) || isNaN(Snum))
+                    throw "The input is not a number."
+                document.getElementById("result").innerHTML=Fnum+Snum;
+            }catch(err){
+                console.log(err);
+            }
+        }
+        document.getElementById("minus-btn").onclick=function() {
+            try {
+                var Fnum=document.getElementById("first-number").value;
+                var Snum=document.getElementById("second-number").value;
+                if(isNaN(Fnum) || isNaN(Snum))
+                    throw "The input is not a number."
+                document.getElementById("result").innerHTML=Fnum-Snum;
+            }catch(err){
+                 console.log(err);
+            }
+        }
+        document.getElementById("times-btn").onclick=function() {
+            try {
+                var Fnum=document.getElementById("first-number").value;
+                var Snum=document.getElementById("second-number").value;
+                if(isNaN(Fnum) || isNaN(Snum))
+                    throw "The input is not a number."
+                document.getElementById("result").innerHTML=Fnum*Snum;
+            }catch(err){
+                 console.log(err);
+            }
+        }
+        document.getElementById("divide-btn").onclick=function() {
+            try {
+                var Fnum=document.getElementById("first-number").value;
+                var Snum=document.getElementById("second-number").value;
+                if(isNaN(Fnum) || isNaN(Snum))
+                    throw "The input is not a number."
+                if(Snum==Number(0))
+                    throw "Divisor is 0."
+                document.getElementById("result").innerHTML=Fnum/Snum;
+            }catch(err){
+                 console.log(err);
+            }
+        }
+    </script>
+</body>
+</html>

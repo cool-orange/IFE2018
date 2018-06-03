@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="dec-number" type="" placeholder="输入一个十进制非负整数">
+    <input id="bin-bit" type="" placeholder="输入转化后二进制数字位数">
+    <button id="trans-btn" onclick="dec2bin()">转化为二进制</button>
+    <p id="result">运算结果</p>
+    <script>
+		function dec2bin() {
+			try {
+				var bin_bit=document.getElementById('bin-bit').value;
+				var decNumber=document.getElementById('dec-number').value;
+				console.log(decNumber);
+				var result="";
+				if (isNaN(decNumber)||decNumber<0)
+					throw "The input is not legal."
+			    while(decNumber!=0){
+					var temp=decNumber%2;
+					decNumber=Math.floor(decNumber/2);//向下取整
+					result+=temp;
+				}
+				var length=result.length;
+				if(bin_bit>=length)
+				{
+					var Array=result.split("");
+					var num=bin_bit-length;
+					while(--num>=0)
+						Array.push(0);
+					result=Array.join("");
+				}
+				else{
+					console.log("the bin-bit is smaller than the number.");
+				}
+				var final="";
+				length=result.length;
+				while(--length>=0)
+				{
+					final+=result.charAt(length);
+				}
+				document.getElementById('result').innerHTML="运算结果: "+final;
+			}catch(err) {
+				console.log(err);
+			}
+		}
+
+    </script>
+</body>
+</html>
