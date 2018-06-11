@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <div id="wrapper">
+        <div id="news-top" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                <ul>
+                    <li><span>HTML</span><a href="">Some Link1</a></li>
+                    <li><span>JS</span><a class="active" href="">Some Link2</a></li>
+                    <li><span>CSS</span><a href="">Some Link3</a></li>
+                    <li><span>JS</span><a href="">Some Link4</a></li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>
+        <div id="news-normal" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                <ul>
+                    <li><span>HTML</span><a href="">Some Link1</a></li>
+                    <li><span>HTML</span><a href="">Some Link2</a></li>
+                    <li><span>JS</span><a class="active" href="#">Some Link3</a></li>
+                    <li><span>CSS</span><a href="">Some Link4</a></li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div> 
+        <button onclick="getAllListItem()">页面中所有的li标签数</button>
+        <button onclick="findAllHtmlSpanInOneSection('news-top')">id为news-top的div中span标签中内容为HTML的个数</button>
+        <button onclick="findListItem('news-top','spanCont')">id为news-top中span标签内容为spanCont的个数</button>
+        <button onclick=" getActiveLinkContent('news-top')">id为news-top,class为active的文字内容</button>
+    </div>
+    <script>
+
+    function getAllListItem() {
+        // 返回页面中所有li标签
+
+        //getElementsByTagName+getElementById
+        var AllListItem=document.getElementsByTagName("li");
+        var length=AllListItem.length;
+        var para=document.createElement('p');
+        para.textContent="There are "+length+" li in this document(1)."
+
+        var wrap=document.getElementById("wrapper");
+        wrap.appendChild(para);
+
+        //querySelector和querySelectorAll
+        AllListItem=document.querySelectorAll("li");
+        var length=AllListItem.length;
+        var para=document.createElement('p');
+        para.textContent="There are "+length+" li in this document(2)."
+        wrap.appendChild(para);
+
+
+    }
+
+    function findAllHtmlSpanInOneSection(sectionId) {
+        // 返回某个section下所有span中内容为HTML的span标签
+
+        //getElementsByTagName+getElementById
+        var div1=document.getElementById(sectionId);
+
+        var div1_span=div1.getElementsByTagName("span");
+
+        var num=0;
+        for(var i=0;i<div1_span.length;i++) {
+            if(div1_span[i].innerHTML=="HTML")
+                num++;
+        }
+        var para=document.createElement('p');
+        para.textContent="There is "+num+" span whose innerHTML is HTML.(1)"
+
+        var wrap=document.getElementById("wrapper");
+        wrap.appendChild(para);
+
+        //querySelector和querySelector
+        var div2=document.querySelectorAll("#"+sectionId+" span");
+        num=0;
+        for(var i=0;i<div2.length;i++)
+        {
+            if(div2[i].innerHTML=="HTML")
+                num++;
+        }
+        var para=document.createElement('p');
+        para.textContent="There is "+num+" span whose innerHTML is HTML.(2)"
+
+        wrap.appendChild(para);
+
+
+    }
+
+    function findListItem(sectionId, spanCont) {
+        // 返回某个section下，所有所包含span内容为spanCont的LI标签
+
+        //getElementsByTagName+getElementById
+        var div1=document.getElementById(sectionId);
+
+        var div1_span=div1.getElementsByTagName("spanCont");
+ 
+
+        var num=0;
+        for(var i=0;i<div1_span.length;i++) {
+            if(div1_span[i].innerHTML=="spanCont")
+                num++;
+        }
+        var para=document.createElement('p');
+        para.textContent="There are "+num+" span whose innerHTML is spanCont(1)."
+
+        var wrap=document.getElementById("wrapper");
+        wrap.appendChild(para);
+
+        //querySelector和querySelectorAll
+        var div2=document.querySelectorAll("#"+sectionId+" span");
+        num=0;
+        for(var i=0;i<div2.length;i++)
+        {
+            if(div2[i].innerHTML=="spanCont")
+                num++;
+        }
+        var para=document.createElement('p');
+        para.textContent="There are "+num+" span whose innerHTML is spanCont(2)."
+
+        wrap.appendChild(para);
+    }
+
+    function getActiveLinkContent(sectionId) {
+        // 返回某个section下，class为active的链接中包含的文字内容
+
+        //getElementById和getElementsByTagName
+        var allA=document.getElementById(sectionId).getElementsByTagName('a');
+        for(var i=0;i<allA.length;i++)
+        {
+            if(allA[i].className=='active')
+            {
+                var para=document.createElement('p');
+                para.textContent=allA[i].innerHTML;
+
+                var wrap=document.getElementById("wrapper");
+                wrap.appendChild(para);
+            } 
+
+        }
+
+        //querySelector和querySelectorAll
+        var div=document.querySelector("#"+sectionId).querySelectorAll("a");
+        for(var i=0;i<div.length;i++)
+        {
+            if(allA[i].className=='active')
+            {
+                var para=document.createElement('p');
+                para.textContent=allA[i].innerHTML;
+
+                var wrap=document.getElementById("wrapper");
+                wrap.appendChild(para);
+            } 
+
+        }
+
+    }
+
+    </script>
+</body>
+</html>
