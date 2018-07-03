@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>20-21</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      select {
+        visibility: hidden;
+      }
+      .practise {
+        margin: 10px auto;
+        padding: 20px;
+        border: 1px solid black;
+      }
+      .palette {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .palette li {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+        .frame {
+          width: 480px;
+          height: 480px;
+          background-image: url(https://s1.ax1x.com/2018/07/03/PEd8sA.jpg);
+          background-position: 0px -2px;
+          background-repeat: no-repeat;
+        }
+    </style>
+   
+  </head>
+  <body>
+    <div class="practise">
+       <h3>practise 1</h3>
+       <input id="name" type="text">
+       <button id="submit-btn">Submit</button>
+
+       <script>
+         var submit=document.querySelector("#submit-btn");
+         var text=document.querySelector("#name");
+         document.onkeydown=function(event) {
+          if(event.keyCode==27)
+            text.value="";
+          if(event.keyCode==13)
+            console.log(text.value);
+         }
+         function Console() {
+          console.log(text.value);
+         }
+         submit.onclick=Console;
+       </script>
+    </div>
+    <div class="practise">
+      <h3>practice 2</h3>
+      <label>
+        <input id="school" name="status" type="radio">
+        School
+      </label>
+      <label>
+        <input id="company" name="status" type="radio">
+        Company
+      </label>
+
+      <select id="school-select">        
+          <option>北京邮电大学</option>
+          <option>黑龙江大学</option>
+          <option>华中科技大学</option>
+      </select>
+
+      <select id="company-select">        
+          <option>百度</option>
+          <option>爱奇艺</option>        
+      </select>
+      <script>
+        var school=document.querySelector("#school");
+        var company=document.querySelector("#company");
+        function ChangeState() {
+          var selects=document.querySelectorAll("select");
+          if(this.checked)
+          {
+            for(var i=0;i<selects.length;i++)
+            {
+              if(selects[i].id.indexOf(this.id))
+                selects[i].style.visibility="visible";
+              else
+                selects[i].style.visibility="hidden";
+            }   
+          }
+        }
+        school.onclick=ChangeState;
+        company.onclick=ChangeState;
+      </script>
+    </div>
+    <div class="practise">
+      <h3>practise 3</h3>
+      <ul class="palette">
+        <li style="background-color:crimson"></li>
+        <li style="background-color:bisque"></li>
+        <li style="background-color:blueviolet"></li>
+        <li style="background-color:coral"></li>
+        <li style="background-color:chartreuse"></li>
+        <li style="background-color:darkolivegreen"></li>
+        <li style="background-color:cyan"></li>
+        <li style="background-color:#194738"></li>        
+      </ul>
+
+      <p class="color-picker"></p>
+
+      <script>
+          var ul=document.querySelector(".palette");
+          ul.onclick=function(event) {
+            var e=event||window.event;
+            var source=e.target||e.srcElement;
+            if(source.nodeName.toLowerCase() == "li")
+            {
+              var p=document.querySelector(".color-picker");
+              p.innerHTML=source.style.backgroundColor;
+              p.style.color=source.style.backgroundColor;
+            }
+          }
+      </script>
+
+    </div>
+    <div class="practise">
+      <h3>practise 4</h3>
+      <div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+      <button id="fade-btn">淡出</button>
+      <script>
+        var button=document.getElementById("fade-btn");
+        var source=document.querySelector("#fade-obj");
+        var flag;
+        var num=10;
+        button.onclick=function(){
+          if(this.innerHTML=="淡出"){
+            this.disabled=true;
+            flag=window.setInterval(fadeout,100);
+            this.disabled=false;
+            this.innerHTML="淡入";
+          }
+          else{
+            this.disabled=true;
+            flag=window.setInterval(fadein,100);
+            this.disabled=false;
+            this.innerHTML="淡出";  
+         
+          }
+        }
+        function fadeout(){
+          source.style.opacity=num/10;
+          num--;
+          if(source.style.opacity==0){
+              window.clearInterval(flag);
+            }
+        }
+        function fadein(){
+          source.style.opacity=num/10;
+          num++; 
+          if(source.style.opacity==1){
+              window.clearInterval(flag);
+          }
+        }
+      </script>
+    </div>
+    <div class="practise">
+        <h4>practise 5</h4>
+        <div class="frame"></div>
+        <button id="move">动画</button>
+        <script>
+          var Height=8160;
+          var flag;
+          var positiony=0;
+          var source=document.querySelector(".frame");
+          var button=document.querySelector("#move");
+          button.onclick=function frameanimation()
+          {
+            flag=window.setInterval(run,200);
+          }
+          function run(){
+            console.log(positiony);
+            source.style['background-position-y']=positiony+'px';
+            console.log(source.style['background-position']);
+            console.log(positiony);
+            positiony -= 480;
+            if(positiony== -8160 ){
+              window.clearInterval(flag);
+              positiony=0;
+            } 
+          }
+        </script>
+    </div>
+  </body>
+</html>
