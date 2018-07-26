@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>22-24</title>
+	<style>
+	* {
+		margin: 2px;
+		padding: 0px;
+	}
+	.practise {
+		box-sizing: border-box;
+		border: 1px solid #000000;
+		padding: 20px;
+	}
+	</style>
+</head>
+<body>
+	<div class="practise" id="content1">
+		<h3>practise 1</h3>
+		<div>
+		    <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label><input id="num-a" type="text">
+		    <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label><input id="num-b" type="text">
+        </div>
+		<div>
+		    <button>判断当前选中的输入框输入内容是否为数字</button>
+		    <button>把 A 四舍五入为 B 个小数位数的数字</button>
+		    <button>当前选中数字的绝对值</button>
+		    <button>对当前选中的数字进行上舍入</button>
+		    <button>对当前选中的数字进行下舍入</button>
+		    <button>把当前选中的数字四舍五入为最接近的整数</button>
+		    <button>返回 A 和 B 中的最高值</button>
+		    <button>返回 A 和 B 中的最低值</button>        
+		</div>
+		<p id="result1"></p>
+		<script>
+			var ResultText=document.querySelector('#result1');
+			var buttons=document.querySelectorAll('#content1 button');
+			var inputs=document.querySelectorAll('#content1 input[type=text]');
+			var Result = function (text) {
+			 	console.log(text);
+			 	ResultText.innerHTML = text;
+            }
+			for(let i=0 ;i<buttons.length; i++)
+			{
+				buttons[i].onclick=function()
+				{
+					switch(buttons[i].innerHTML) {
+						case '判断当前选中的输入框输入内容是否为数字':
+							var Radio=document.querySelector('#content1 input[type=radio]:checked');
+					    	if(!Radio){Result('未选择输入框');return;}
+					    	Num=Radio.parentNode.nextSibling;
+							var Result1=!isNaN(Num.value) ? '数字' : '非数字';
+							return Result(Result1);break;
+						case '把 A 四舍五入为 B 个小数位数的数字' :
+							if(isNaN(inputs[0].value)||isNaN(inputs[1].value)){
+								console.log('存在非数字');break;
+							}
+							var Result2=Math.round(inputs[0].value*Math.pow(10,inputs[1].value))/Math.pow(10,inputs[i].value);
+							return Result(Result2);break;
+						case '当前选中数字的绝对值' :
+							var Radio=document.querySelector('#content1 input[type=radio]:checked');
+					    	if(!Radio){return Result('未选择输入框');}
+					    	Num=Radio.parentNode.nextSibling;
+					    	return Result(Math.abs(Num.value));break;
+					    case '对当前选中的数字进行上舍入':
+					    	var Radio=document.querySelector('#content1 input[type=radio]:checked');
+					    	if(!Radio){return Result('未选择输入框');}
+					    	Num=Radio.parentNode.nextSibling;break;
+					    	return Result(Math.ceil(Num.value));
+					    case '对当前选中的数字进行下舍入':
+					    	var Radio=document.querySelector('#content1 input[type=radio]:checked');
+					    	if(!Radio){return Result('未选择输入框');}
+					    	Num=Radio.parentNode.nextSibling;
+					    	return Result(Math.floor(Num.value));break;
+					    case '把当前选中的数字四舍五入为最接近的整数':
+					    	var Radio=document.querySelector('#content1 input[type=radio]:checked');
+					    	if(!Radio){return Result('未选择输入框');}
+					    	Num=Radio.parentNode.nextSibling;
+					    	return Result(Math.round(Num.value));break;
+					    case '返回 A 和 B 中的最高值' :
+					    	if(isNaN(inputs[0].value)||isNaN(inputs[1].value)){
+								console.log('存在非数字');break;
+							}
+							var Result3=Math.max(inputs[0].value,inputs[1].value);
+							return Result(Result3);break;
+						case '返回 A 和 B 中的最低值':
+							if(isNaN(inputs[0].value)||isNaN(inputs[1].value)){
+								console.log('存在非数字');break;
+							}
+							var Result3=Math.min(inputs[0].value,inputs[1].value);
+							return Result(Result3);break;
+					}					
+				}
+			}
+		</script>
+	</div>
+	<div class="practise" id="content2">
+		<h3>practise 2</h3>
+		<div>
+			<label>String A:
+	        	<input id="radio-a" type="radio" checked="true" name="str-obj" value="a">
+	    	</label>
+		    <textarea id="str-a"></textarea>
+		    <label>String B:
+		        <input id="radio-b" type="radio" name="str-obj" value="b">
+		    </label>
+		    <textarea id="str-b"></textarea>        
+		    <label>Num A：<input id="num-a" type="number" value="0"></label>
+		    <label>Num B：<input id="num-b" type="number" value="1"></label>
+		</div>
+		<div>
+		    <button>获取当前选中输入的内容长度</button>
+		    <button>当前选中输入中的第3个字符</button>
+		    <button>把两个输入框的文字连接在一起输出（concat）</button>
+		    <button>输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）</button>
+		    <button>输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）</button>
+		    <button>使用slice获取选中输入框内容的部分内容，参数为num-a及num-b</button>
+		    <button>当前选中输入框的行数</button>
+		    <button>使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
+		    <button>把所选输入框中的内容全部转为大写</button>
+		    <button>把所选输入框中的内容全部转为小写</button>
+		    <button>把所选输入框中内容的半角空格全部去除</button>
+		    <button>把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
+		</div>
+		<p id="result2"></p>
+		<script>
+			var buttons2=document.querySelectorAll('#content2 button');
+			var ResultText2=document.querySelector('#result2');
+			var inputs2=document.querySelectorAll("#content2 textarea");
+			var num_a=document.querySelector("#content2 #num-a");
+			var num_b=document.querySelector("#content2 #num-b");
+			/*console.log(num_a.type);*/
+			var Result2= function (text) {
+			 	console.log(text); 
+			 	ResultText2.innerHTML = text;
+	            }
+			for(let i=0;i<buttons2.length;i++)
+			{
+				buttons2[i].onclick=function() 
+				{
+					switch(buttons2[i].innerHTML)
+					{
+						case '获取当前选中输入的内容长度':
+							var Radio=document.querySelector('#content2 input[type=radio]:checked');
+							var Strings=document.querySelector('#str-'+Radio.value);
+							return Result2(Strings.value.length);
+						case '当前选中输入中的第3个字符':
+							var Radio=document.querySelector('#content2 input[type=radio]:checked');
+							var Strings=document.querySelector('#str-'+Radio.value);
+							if(Strings.length<3){ return Result2('不足3个字符'); break;}
+							return Result2(Strings.value[2]);
+						case '把两个输入框的文字连接在一起输出（concat）':
+						    return Result2(inputs2[0].value.concat(inputs2[1].value));
+						case '输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）' :
+							if(inputs2[0].value.indexOf(inputs2[1].value==-1)){ 
+								return Result2('未找到该字符');
+								break;}
+							return Result2(inputs2[0].value.indexOf(inputs2[1].value));
+						case '输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）':
+							if(inputs2[1].value.lastIndexOf(inputs2[0].value)==-1){ 
+								return Result2('未找到该字符');
+								break;}
+							return Result2(inputs2[1].value.lastIndexOf(inputs2[0].value));
+						case '使用slice获取选中输入框内容的部分内容，参数为num-a及num-b' :
+							var Radio=document.querySelector('#content2 input[type=radio]:checked');
+							var Strings=document.querySelector('#str-'+Radio.value);
+							console.log(num_a.value);
+							return Result2(Strings.value.slice(num_a.value,num_b.value));
+						case '当前选中输入框的行数':
+							var Radio=document.querySelector('#content2 input[type=radio]:checked');
+							var Strings=document.querySelector('#str-'+Radio.value);
+							return Result2(Strings.value.length/Strings.cols);break;
+						case '使用substr获取选中输入框内容的子字符串，参数为num-a及num-b' :
+							var Radio=document.querySelector('#content2 input[type=radio]:checked');
+							var Strings=document.querySelector('#str-'+Radio.value);
+							return Result2(Strings.value.substr(num_a.value,num_b.value));break;
+						case '把所选输入框中的内容全部转为小写':
+							var Radio=document.querySelector('#content2 input[type=radio]:checked');
+							var Strings=document.querySelector('#str-'+Radio.value);
+							return Result2(Strings.value.toLowerCase());break;
+						case '把所选输入框中的内容全部转为大写':
+							var Radio=document.querySelector('#content2 input[type=radio]:checked');
+							var Strings=document.querySelector('#str-'+Radio.value);
+							return Result2(Strings.value.toUpperCase());break;
+						case '把所选输入框中内容的半角空格全部去除':
+							var Radio=document.querySelector('#content2 input[type=radio]:checked');
+							var Strings=document.querySelector('#str-'+Radio.value);
+							return(Strings.value.replace(' ',''));break;
+						case '把所选输入框中内容的a全部替换成另外一个输入框中的内容':
+							var Radio=document.querySelector('#content2 input[type=radio]:checked');
+							var Strings=document.querySelector('#str-'+Radio.value);
+						    var NextStrings=(Radio.value=='a')?inputs2[1].value:inputs2[0].value;
+						    Strings.value=NextStrings;
+						default:break;
+					}
+				}
+			}			
+		</script>
+	</div> 
+	<div class="practise">
+		<h3>practise 3</h3>
+		<p>结果看console	</p>
+		<script>
+			function diyTrim(str) {
+    			var result = "";
+    			// do something
+    			var pos=0;
+    			var pos2=0;
+    			if(str.length==0)
+    				result="";
+    			else
+    			{
+    				for(let i=0;i<str.length;i++)
+    				{
+    					if(str[i]!=' '&&str[i]!='　'){
+    						pos=i;
+    						break;
+    					}
+    				}
+		    		for(let i=str.length-1;i>0;i--)
+		    		{
+		    			if(str[i]!=' '&&str[i]!='　'){
+		    					pos2=i;
+		    					break;
+		    			}
+		    		}
+    				if(pos==pos2)
+    					result=str[pos];
+    			    if(pos!=0 || pos2!=0)
+    				    result=str.slice(pos,pos2+1);
+
+    			}
+    			return result;
+    		}
+			// 测试用例
+			console.log(diyTrim(' a f b    ')); // ->a f b
+			console.log(diyTrim('    ffdaf    ')); // ->ffdaf
+			console.log(diyTrim('1    ')); // ->1
+			console.log(diyTrim('　　f')); // ->f
+			console.log(diyTrim('  　  a f b 　　 ')); // ->a f b
+			console.log(diyTrim(' ')); // ->
+			console.log(diyTrim('　')); // ->
+			console.log(diyTrim('')); // ->
+
+			function removeRepetition(str) {
+			    var result = "";
+			    result+=str[0];
+			    if(str.length==0)
+			    	result="";
+			    else
+			    {
+			    	for(var i=1;i<str.length;i++)
+			    	{
+			    		if(str[i]!=result[result.length-1])
+			    			result+=str[i];
+			    	}		
+			    }
+			    return result;
+			}
+
+			// 测试用例
+			console.log(removeRepetition("aaa"));// ->a
+			console.log(removeRepetition("abbba")); // ->aba
+			console.log(removeRepetition("aabbaabb")); // ->abab
+			console.log(removeRepetition("")); // ->
+			console.log(removeRepetition("abc"));// ->abc
+
+		</script>
+	</div>
+	<div class="practise">
+		<h4>practise 4</h4>
+		<p>结果看console</p>
+		<button id="button1">前序遍历</button>
+		<button id="button2">中序遍历</button>
+		<button id="button3">后序遍历</button>
+		<script>
+			var tree = {
+			    "id": 0,
+			    "name": "root",
+			    "left": {
+			        "id": 1,
+			        "name": "Simon",
+			        "left": {
+			            "id": 3,
+			            "name": "Carl",
+			            "left": {
+			                "id": 7,
+			                "name": "Lee",
+			                "left": {
+			                    "id": 11,
+			                    "name": "Fate"
+			                }
+			            },
+			            "right": {
+			                "id": 8,
+			                "name": "Annie",
+			                "left": {
+			                    "id": 12,
+			                    "name": "Saber"
+			                }
+			            }
+			        },
+			        "right": {
+			            "id": 4,
+			            "name": "Tony",
+			            "left": {
+			                "id": 9,
+			                "name": "Candy"
+			            }
+			        }
+			    },
+			    "right": {
+			        "id": 2,
+			        "name": "right",
+			        "left": {
+			            "id": 5,
+			            "name": "Carl",
+			        },
+			        "right": {
+			            "id": 6,
+			            "name": "Carl",
+			            "right": {
+			                "id": 10,
+			                "name": "Kai"
+			            }        
+			        }
+			    }
+			}
+			var button1=document.getElementById('button1');
+			var button2=document.getElementById('button2');
+			var button3=document.getElementById('button3');
+
+			// 假设id和name均不会重复，根据输入name找到对应的id
+			// 借用栈来非递归前序遍历二叉树
+			function findIdByName(name) {
+				var target=tree;
+				var arr=[];
+				arr.push(target);
+				while(arr.length!=0)
+				{
+					var node=arr.pop();
+					if(node!=null)
+					{
+						if(node.name==name)
+							return node.id;
+						else
+						{
+							arr.push(node.right);
+							arr.push(node.left);
+						}
+
+					}
+				}
+
+			}
+			// 假设id和name均不会重复，根据输入id找到对应的name
+			// 非递归中序遍历二叉树
+			function findNameById(id) {
+				var target=tree;
+				var arr=[];
+				do{
+					while(target!=null)
+					{
+						arr.push(target)
+						target=target.left;
+					}
+					target=arr.pop();
+					if(target.id==id)
+						return target.name;
+					else
+					{
+						if(target.right!=null)
+						{
+							target=target.right;
+						}
+						else
+							target=null
+					}
+				}while(target!=null||arr.length!=0)	
+			}
+			// 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
+			// 前序遍历递归法
+			button1.onclick=function getListWithDLR() {
+				var Recursive=function (tree)
+				{
+					if(tree)
+					{
+						console.log(tree.name);
+						Recursive(tree.left);				
+						Recursive(tree.right);
+					}
+				}
+
+				return Recursive(tree)
+			}
+
+			// 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
+			button2.onclick=function getListWithLDR() {
+				var Resursive=function(tree)
+				{
+					if(tree)
+					{
+						Resursive(tree.left);
+						console.log(tree.name);
+						Resursive(tree.right);
+					}
+				}
+				return Resursive(tree);
+			}
+
+			// 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
+			// 非递归后序遍历树
+			button3.onclick=function getListWithLRD() {
+				var target=tree;
+				var arr=[];
+				while(arr.length!=0||target)
+				{
+					while(target)
+					{
+						arr.push(target);
+						target=target.left;
+					}
+					target=arr.pop();
+					console.log(target.name);
+					if(arr.length!=0 && target==arr[arr.length-1].left )
+						target=arr[arr.length-1].right;
+					else
+						target=null;
+				}
+			}
+			console.log("right的id:"+findIdByName('right'));
+			console.log("id为11的name:"+findNameById(11));
+		</script>
+	</div>
+	<div class="practise">
+		<h3>practise 5</h3>
+		<input id="queue-input" type="text">
+		<p id="queue-cont">队列内容：apple-&gt;pear</p>    
+		<button id="in-btn">入队</button>
+		<button id="out-btn">出队</button>
+		<button id="font-btn">打印队头元素内容</button>
+		<button id="empty-btn">判断队列是否为空</button>
+		<button id="change-btn">改变队头方向</button>
+
+		<script>
+
+		var queue = ["apple", "pear"];
+		var inbtn=document.getElementById('in-btn');
+		var outbtn=document.getElementById('out-btn');
+		var fontbtn=document.getElementById('font-btn');
+		var emptybtn=document.getElementById('empty-btn');
+		var changebtn=document.getElementById('change-btn');
+		var queuecont=document.getElementById('queue-cont');
+		
+		var flag=true;//->
+		inbtn.onclick=function()
+		{
+			var content=document.getElementById('queue-input');
+			if(content.value==""||content==null)
+				return queuecont.innerHTML="请先输入内容：";
+			else
+			{
+				if(flag)
+				{
+					queue.push(content.value);
+					queuecont.innerHTML="队列内容："+queue.join("->");
+				}
+				else
+				{
+					queue.unshift(content.value);
+					queuecont.innerHTML="队列内容："+queue.join("<-");
+
+				}
+							}
+		}
+		outbtn.onclick=function()
+		{
+			flag?queue.shift():queue.pop();
+			if(queue.length==0)
+				queuecont.innerHTML="队列内容：空";
+			else
+			{
+				queuecont.innerHTML=flag?"队列内容："+queue.join("->"):"队列内容："+queue.join("<-");
+			}
+		}
+		fontbtn.onclick=function()
+		{
+			queuecont.innerHTML=queue.length==0?"队列为空":flag?"队头元素："+queue[0]:"队头元素："+queue[queue.length-1];
+		}
+		emptybtn.onclick=function()
+		{
+			queuecont.innerHTML=queue.length==0?"队列为空":"队列不为空";
+		}
+		changebtn.onclick=function()
+		{
+			flag=!flag;
+			if(flag)
+				queuecont.innerHTML="队列内容："+queue.join('->');
+			else
+				queuecont.innerHTML="队列内容："+queue.join('<-');
+		}
+		</script>
+	</div>
+	<div class="practise" id="content6">
+		<h3>practise 6</h3>
+		<input id="stack-input" type="text">
+		<p id="stack-cont">栈内容：apple-&gt;pear</p>    
+		<button id="push-btn">进栈</button>
+		<button id="pop-btn">退栈</button>
+		<button id="font-btn">打印栈顶元素内容</button>
+		<button id="empty-btn">判断栈是否为空</button>
+		<button id="change-btn">改变栈顶</button>
+
+		<script>
+			var stack = ["apple", "pear"];
+
+			var pushbtn=document.querySelector("#push-btn");
+			var popbtn=document.querySelector("#pop-btn");
+			var fontbtn=document.querySelector("#content6 #font-btn");
+			var emptybtn=document.querySelector("#content6 #empty-btn");
+			var changebtn=document.querySelector("#content6 #change-btn");
+			var stackcont=document.querySelector("#stack-cont");
+
+			var flag=true//->;
+			pushbtn.onclick=function()
+			{
+				var content=document.getElementById('stack-input');
+				if(content.value==""||content==null)
+					return stackcont.innerHTML="请先输入内容：";
+				else
+				{
+					if(flag)
+					{
+						stack.push(content.value);
+						stackcont.innerHTML="栈内容："+stack.join("->");
+					}
+					else
+					{
+						stack.unshift(content.value);
+						stackcont.innerHTML="栈内容："+stack.join("<-");
+
+					}
+
+			   }
+			}
+			popbtn.onclick=function()
+			{
+				flag?stack.pop():stack.shift();
+				if(stack.length==0)
+					stackcont.innerHTML="栈内容：空";
+				else
+				{
+					stackcont.innerHTML=flag?"栈内容："+stack.join("->"):"栈内容："+stack.join("<-");
+				}
+
+			}
+			fontbtn.onclick=function()
+			{
+				stackcont.innerHTML=stack.length==0?"栈为空":flag?"栈顶元素："+stack[stack.length-1]:"栈顶元素："+stack[0];
+			}
+			emptybtn.onclick=function()
+			{
+				stackcont.innerHTML=stack.length==0?"栈为空":"栈不为空";
+			}
+			changebtn.onclick=function()
+			{
+				flag=!flag;
+				if(flag)
+					stackcont.innerHTML="栈内容："+stack.join('->');
+				else
+					stackcont.innerHTML="栈内容："+stack.join('<-');
+			}
+		</script>
+
+	</div>
+	<div class="practise">
+		<h3>practise 7</h3>
+		<p>结果看console</p>
+		<script>
+			var arr = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+			arr.sort((a,b)=> a - b);
+			console.log("从小到大："+arr);
+
+			arr.sort(function(a, b) {
+				return b - a;
+			})
+			console.log("从大到小："+arr);
+
+			var arr = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+			arr.sort();
+			console.log("从a~z："+arr);
+			arr.sort(function(a ,b){
+				return a - b ? -1 : 1;
+			})
+			console.log("从z~a："+arr);
+
+			var arr = [[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+			arr.sort(function(a,b){
+				return b[1]-a[1];
+			})
+			console.log(JSON.stringify(arr));
+
+			var arr = [
+			    {
+			        id: 1,
+			        name: 'candy',
+			        value: 40
+			    }, {
+			        id: 2,
+			        name: 'Simon',
+			        value: 50
+			    }, {
+			        id: 3,
+			        name: 'Tony',
+			        value: 45
+			    }, {
+			        id: 4,
+			        name: 'Annie',
+			        value: 60
+			    }
+			];
+			arr.sort(function(a,b) {
+				return a.value-b.value;
+			})
+			console.log(arr);
+		</script>
+	</div>
+	<div class="practise">
+		<h3>practise 8</h3>
+		<p>结果看console</p>
+		<script>
+			var scoreObject = {
+		    "Tony": {
+		        "Math": 95,
+		        "English": 79,
+		        "Music": 68
+		    }, 
+		    "Simon": {
+		        "Math": 100,
+		        "English": 95,
+		        "Music": 98
+		    }, 
+		    "Annie": {
+		        "Math": 54,
+		        "English": 65,
+		        "Music": 88
+		    }
+		}
+		var arr = new Array();
+		for(let i in scoreObject)
+		{
+			var subarr=new Array();
+			subarr.push(i,scoreObject[i].Math,scoreObject[i].English,scoreObject[i].Music);
+			arr.push(subarr);
+		}
+		console.log(arr);
+		var menuArr = [
+		    [1, "Area1", -1],
+		    [2, "Area2", -1],
+		    [3, "Area1-1", 1],
+		    [4, "Area1-2", 1],
+		    [5, "Area2-1", 2],
+		    [6, "Area2-2", 2],
+		    [7, "Area1-2-3", 4],
+		    [8, "Area2-2-1", 6],
+		];
+		var menuObject=new Object();
+		menuObject[0]=new Object();
+		for(let i=0; i< menuArr.length; i++)
+		{
+			var a=menuArr[i][0];
+			var c=menuArr[i][2];
+			menuObject[a]=new Object();
+			menuObject[a].name=menuArr[i][1];
+			if(menuArr[i][2]==-1)
+				menuObject[0][a]=menuObject[a];
+			else
+			{
+				menuObject[c].subMenu=new Object();
+				menuObject[c].subMenu[a]=menuObject[a];
+			}				
+		}
+		console.log(menuObject[0]);
+		</script>
+	</div>
+</body>
+</html>
+#https://github.com/xclazy/2018IFE/blob/master/basis/9/index.html
