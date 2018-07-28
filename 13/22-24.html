@@ -673,15 +673,18 @@
 			var c=menuArr[i][2];
 			menuObject[a]=new Object();
 			menuObject[a].name=menuArr[i][1];
-			if(menuArr[i][2]==-1)
+			if(c==-1)
 				menuObject[0][a]=menuObject[a];
 			else
 			{
-				menuObject[c].subMenu=new Object();
+				if(!menuObject[c].subMenu)
+					menuObject[c].subMenu=new Object();
 				menuObject[c].subMenu[a]=menuObject[a];
 			}				
 		}
 		console.log(menuObject[0]);
+        
+        
 		</script>
 	</div>
 </body>
