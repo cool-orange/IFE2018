@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">  
+    <meta http-equiv="Content-Script-Type" content="text/javascript">  
+	<title></title>
+</head>
+<body>
+	<h1>RegExp</h1>
+    <p>Enter your phone number (with area code) and then click "Check".
+        <br>The expected format is like ###-###-####.</p>
+    <form action="#">  
+      <input id="phone"><button onclick="testInfo(document.getElementById('phone'));">Check</button>
+    </form> 
+    
+    <script type="text/javascript">  
+      var reg2 = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/g;  
+      function testInfo(phoneInput) {
+      	console.log(phoneInput.value);
+        var OK = reg2.exec(phoneInput.value); 
+        if (!OK)  
+          window.alert(phoneInput.value + ' isn\'t a phone number with area code!');  
+        else
+          window.alert('Thanks, your phone number is ' + OK[0]);  
+      }  
+    </script>  
+
+	<script>
+		//正则表达式样例
+	    var str="他今年22岁，她今年20岁，他的爸爸今年45岁，她的爸爸今年44岁，一共有4人"  
+	    function test($1){   
+	    	var gyear=(new Date()).getYear()-parseInt($1)+1;   
+	    	return $1+"("+gyear+"年出生)";   
+	    }   
+	    var reg=new RegExp("\\d+"+"岁","g");   
+	    var newstr=str.replace(reg,test);   
+	    console.log(str);   
+	    console.log(newstr);
+
+	    var names="Harry Trump  ;Fred Barney; Helen Rigby ; Bill Abel ; Chris Hand ";
+	    var output=['---------- Original String\n", names + "\n'];
+	    var pattern=/\s*;\s*/;
+	    var nameList=names.split(pattern);
+
+	    pattern=/(\w+)\s(\w+)/;
+	    var bySurnameList= [];
+	    output.push("---------- After Split by Regular Expression");
+		var i, len;
+		for (i = 0, len = nameList.length; i < len; i++){
+		  output.push(nameList[i]);
+		  bySurnameList[i] = nameList[i].replace(pattern, "$2, $1");
+		}
+		// 输出新的数组
+		output.push("---------- Names Reversed");
+		for (i = 0, len = bySurnameList.length; i < len; i++){
+		  output.push(bySurnameList[i]);
+		}
+		// 根据姓来排序，然后输出排序后的数组。
+		bySurnameList.sort();
+		output.push("---------- Sorted");
+		for (i = 0, len = bySurnameList.length; i < len; i++){
+		  output.push(bySurnameList[i]);
+		}
+		output.push("---------- End");
+		console.log(output.join("\n"));
+
+        //RegExp方法
+	    var s="*angle/"
+	    console.log(s.replace(/[.*+?^=!:${}()|[\]\/\\]/g, "\\$&"));//(/起到转义的作用，[]任意选一个的作用)
+	    
+	    var str="Open Chapter 4.3, paragraph 6";
+	    var str1="Chapter 3 and 4";
+	    var reg=/Chapter (\d+)\.\d*/;
+	    var reg1=/Chapter (\d+).\d*/;
+	    //test测试是否匹配RegExp
+	    console.log(reg.test(str));
+	    console.log(reg.test(str1));
+	    console.log(reg1.test(str1));
+	    //exec字符串查找匹配返回数组;
+	    //exec[0]为正则表达式匹配字符串，exec[1]为第一个子表达式(括号包裹的式子)匹配的字符串...
+	    console.log(reg1.exec(str));
+	    //返回匹配到的位置索引
+	    console.log(str.search(reg1));
+	    //使用替换字符串替换匹配到的子字符串
+	    console.log(str.replace(reg1,"\\$&"));
+	   //lastindex属性
+	   var myRe = /d(b+)d/g;  //创建初始化对象器
+	   var myArray = myRe.exec("cdbbdbsbz");
+	   console.log("The value of lastIndex is " + myRe.lastIndex);
+
+	   var myArray = /d(b+)d/g.exec("cdbbdbsbz");
+       console.log("The value of lastIndex is " + /d(b+)d/g.lastIndex);
+       //str.replace(re,"$2,$1")
+       var re = /(\w+)\s(\w+)/;
+	   var str = "John Smith";
+	   var newstr = str.replace(re, "$2, $1");
+	   console.log(re.exec(str));
+	   console.log(newstr  );
+	   //(?:x)非捕获括号 匹配foo整个单词 捕获括号只对'o'生效
+	   'foofoo'.match(/(?:foo){1,2}/)   // ["foofoo", index: 0, input: "foofoo"]
+	   'foofoo'.match(/foo{1,2}/)       // ["foo", index: 0, input: "foofoo"]
+	   //x(?=y):匹配x当后面跟着y x(?!y):匹配x当且仅当后面不跟着y
+	   'JackSprat'.match(/Jack(?=Sprat)/)            // ["Jack", index: 0, input: "JackSprat"]
+       'JackWprat'.match(/Jack(?=Sprat)/)            // null
+       'JackWprat'.match(/Jack(?=Sprat|Wprat)/)      // ["Jack", index: 0, input: "JackWprat"]
+       console.log(/\d+(?!\.)/.exec("3.141"))
+	</script>
+
+</body>
+</html>

@@ -665,24 +665,43 @@
 		    [7, "Area1-2-3", 4],
 		    [8, "Area2-2-1", 6],
 		];
-		var menuObject=new Object();
-		menuObject[0]=new Object();
-		for(let i=0; i< menuArr.length; i++)
+		
+		function arrToObj(menuArr,parent)
 		{
-			var a=menuArr[i][0];
-			var c=menuArr[i][2];
-			menuObject[a]=new Object();
-			menuObject[a].name=menuArr[i][1];
-			if(c==-1)
-				menuObject[0][a]=menuObject[a];
-			else
+			var menuObject=new Object();
+			/*for(let i=0; i< menuArr.length; i++)
 			{
-				if(!menuObject[c].subMenu)
-					menuObject[c].subMenu=new Object();
-				menuObject[c].subMenu[a]=menuObject[a];
-			}				
+				var a=menuArr[i][0];
+				var c=menuArr[i][2];
+				menuObject[a]=new Object();
+				menuObject[a].name=menuArr[i][1];
+				if(c==-1)
+					menuObject[0][a]=menuObject[a];
+				else
+				{
+					if(!menuObject[c].subMenu)
+						menuObject[c].subMenu=new Object();
+					menuObject[c].subMenu[a]=menuObject[a];
+				}				
+			}*/
+			for(let i=0; i<menuArr.length;i++)
+			{
+				var a=menuArr[i][0];
+				var c=menuArr[i][2];
+				if(c==parent)
+				{
+					menuObject[a]=new Object();
+					menuObject[a].name=menuArr[i][1];
+					var temp=arrToObj(menuArr,a);
+					if(JSON.stringify(temp)!="{}")
+						menuObject[a].subMenu=temp;
+				}
+				
+			}
+			return menuObject;
 		}
-		console.log(menuObject[0]);
+		console.log(arrToObj(menuArr,-1));
+		//console.log(menuObject[0]);
         
         
 		</script>

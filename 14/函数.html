@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>函数</title>
+	<style>
+		.practice {
+			width: 90%;
+			height: 100px;
+			border: 1px solid black;
+			padding: 25px;
+			margin : 20px;
+		}
+	</style>
+</head>
+<body onload="startTime()">
+	<div class="practice">
+		<h3>Practice one</h3>
+		<div>View console</div>
+    </div>
+    <div class="practice">
+		<h3>Practice two</h3>
+		<div id="clock"></div>
+		<div id="clock2"></div>
+	</div>
+	<div class="practice">
+		<h3>Practice three</h3>
+		<select id="year-select"></select>
+		<select id="month-select"></select>
+		<select id="day-select"></select>
+		<select id="hour-select"></select>
+		<select id="minite-select"></select>
+		<select id="second-select"></select>
+		<p id="result-wrapper"></p>
+	</div>
+	<script>
+		//Practice one
+	    //函数的封装和调用
+	    function Go() {
+		    console.log("Go");
+		}
+		function GoSteps(n) {
+		   	if(isNaN(n)|| n<=0 ||typeof n=='string'){
+		   		console.log('\n');return;
+		   	}
+		    else if(typeof n=='undefined')
+				Go(); 
+		   	else{
+		   		while(n--&&n>=0)
+		   			Go();
+		   	}
+		}
+		GoSteps(10); // Go 10次
+		GoSteps(1); // Go 1次
+		GoSteps(); // Go 1次，认为缺少参数时，默认参数为1
+		GoSteps(0);  // 0次
+		GoSteps(-1);  // 0次
+		GoSteps(1.4);  // Go 1次
+		GoSteps(1.6);  // Go 1次
+		GoSteps(-1);  // 0次
+		GoSteps(true);  // Go 1次
+		GoSteps(false);  // 0次*/
+		GoSteps("Test");  // 0次
+		GoSteps(NaN);  // 0次
+		GoSteps(null);  // 0次
+		
+		//Practice two
+		//Date函数运用
+		function checkTime(t){
+			return t=t<10?'0'+t:t;
+		}
+		
+		function checkDay(W,n){
+			var WeekArray=["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+			var WeekArray2=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+			return W = n==1?WeekArray[W]:WeekArray2[W];
+		}
+		
+		function checkdate(date){
+			var array=date.split("/");
+			return array.join('-');
+		}
+		
+		function UpdateTime(Y,M,D,W,W2,h,m,s,date){
+			document.getElementById('clock').innerHTML=Y+"年"+M+"月"+D+"日"+W+" "+h+":"+m+":"+s;
+			s=h>12?s+" "+"PM":s+" "+" AM";
+			h=h>12?h-12:h;
+			document.getElementById('clock2').innerHTML=date+" "+W2+" "+h+":"+m+":"+s;
+		}
+		
+		function startTime(){
+			var today=new Date();
+			var Y=today.getFullYear();
+			var M=today.getMonth()+1;
+			var D=today.getDate();
+			var W=today.getDay();
+			var W2=today.getDay();
+			var h=today.getHours();
+			var m=today.getMinutes();
+			var s=today.getSeconds();
+			var date=today.toLocaleDateString();
+			M=checkTime(M);
+			D=checkTime(D);
+			W=checkDay(W,1);
+            W2=checkDay(W2,2);
+			h=checkTime(h);
+			m=checkTime(m);
+			s=checkTime(s);
+			date=checkdate(date);
+			UpdateTime(Y,M,D,W,W2,h,m,s,date);
+			setTimeout('startTime()',500);
+		}
+		
+		//Practice three
+		//AppendOption
+		var Last_len=31;
+		function removeoption(Last_len){
+			var month=document.getElementById("day-select");
+			console.log(Last_len);
+			for(var i=0;i<Last_len;i++){
+				month.remove(month.selectIndex);
+			}
+
+		}
+
+		function checkoption(n){
+			return n = n>=10?n:'0'+n;
+        }
+
+		function Yearselect() {
+			var select=document.getElementById("year-select");
+			for(var i=2016;i<=2022;i++){
+				select.add(new Option(i,i));
+			}
+		}
+		
+		function Monthselect() {
+			var select=document.getElementById("month-select");
+			for(var i=1;i<=12;i++){
+				i=checkoption(i);
+				select.add(new Option(i,i));
+			}
+		}
+
+		function Dayselect() {
+			var len=31;
+			var select=document.getElementById("day-select");
+			var n=document.getElementById("month-select").value;
+			//移除上一次的option
+			removeoption(Last_len);
+			if(n==4||n==6||n==9||n==11)
+				len=30;
+			if(n==2){
+				var year=document.getElementById("year-select").value;
+				len=(year%400 == 0 || (year %4 == 0 && year %100 != 0))?28:29;
+			}
+			//记录事件改变前的天数
+			Last_len=len;
+			for(var i=1;i<=len;i++){
+				i=checkoption(i);
+				select.add(new Option(i,i));
+			}
+		}
+
+		function Hourselect() {
+			var select=document.getElementById("hour-select");
+			for(var i=0;i<24;i++){
+				i=checkoption(i);
+				select.add(new Option(i,i));
+			}
+
+		} 
+		
+		function Minuteselect() {
+			var select=document.getElementById("minite-select");
+			for(var i=0;i<60;i++){
+				i=checkoption(i);
+				select.add(new Option(i,i));
+			}
+		}
+
+		function Secondselect() {
+			var select=document.getElementById("second-select");
+			for(var i=0;i<60;i++){
+				i=checkoption(i);
+				select.add(new Option(i,i));
+			}
+		}
+		function result_p(){
+			var p=document.getElementById("result-wrapper"),
+			    year=document.getElementById("year-select").value,
+			    month=document.getElementById("month-select").value,
+			    day=document.getElementById("day-select").value,
+			    hour=document.getElementById("hour-select").value,
+			    minite=document.getElementById("minite-select").value,
+			    second=document.getElementById("second-select").value,
+			    date=new Date(),
+			    last=new Date(year,month,day,hour,minite,second),
+			    str,
+			    days,
+			    hours,
+			    minites,
+			    seconds,
+			    week;
+
+			    week=last.getDay();
+			    week=checkDay(week,1);
+			    if(last.getTime()<date.getTime()){
+			    	str=" 已经过去";
+			    	days=Math.floor(((date.getTime()-last.getTime()))/(1000*3600*24));
+			    	hours=Math.floor(((date.getTime()-last.getTime())-days*1000*3600*24)/(1000*3600));
+			    	minites=Math.floor(((date.getTime()-last.getTime())-days*1000*3600*24-hours*3600*1000)/(1000*60));
+			    	seconds=Math.round(((date.getTime()-last.getTime())-days*1000*3600*24-hours*3600*1000-minites*60*1000)/1000);
+			    
+			    }
+			    else{
+			    	str=" 还有"
+			    	days=Math.floor(((last.getTime()-date.getTime()))/(1000*3600*24));
+			    	hours=Math.floor(((last.getTime()-date.getTime())-days*1000*3600*24)/(1000*3600));
+			    	minites=Math.floor(((last.getTime()-date.getTime())-days*1000*3600*24-hours*3600*1000)/(1000*60));
+			    	seconds=Math.round(((last.getTime()-date.getTime())-days*1000*3600*24-hours*3600*1000-minites*60*1000)/1000);
+			    }
+			    setTimeout(result_p,1000);
+			p.innerHTML="现在距离 "+year+"年"+month+"月"+day+"日"+" "+week+" "+hour+":"+minite+":"+second+str+days+"天"+hours+"小时"+minites+"分"+seconds+"秒";
+		}
+		Yearselect();
+		Monthselect();
+		Dayselect();
+		Hourselect();
+		Minuteselect();
+		Secondselect();
+		result_p();
+		//year month监听事件
+		document.getElementById("year-select").addEventListener("change",Dayselect);
+		document.getElementById("month-select").addEventListener("change",Dayselect);
+	</script>
+	
+
+</body>
+</html
