@@ -11,3 +11,5 @@
   * 学习布局  [作业](https://cool-orange.github.io/IFE2018/06/layout_2.html)
 * 第9天和第11天 
   * 来做一个漂亮的网站  [作业](https://cool-orange.github.io/IFE2018/07/Web.html)
+* 第12天和第15天
+  * 来做一个复杂页面  [作业](https://cool-orange.github.io/IFE2018/08/08.html)
