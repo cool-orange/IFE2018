@@ -21,3 +21,7 @@
   * 找到那个Dom  [作业](https://cool-orange.github.io/IFE2018/11/Dom.html)
 * 第20天和第21天
   * 让你和页面对话 [作业](https://cool-orange.github.io/IFE2018/12/20-21.html)
+* 第22天到第24天
+  * javascript里面的居民们 [作业](https://cool-orange.github.io/IFE2018/13/22-24.html)
+* 第25天到第27天
+  * 倒数开始滴滴答答 [作业](https://cool-orange.github.io/IFE2018/14/函数.html)
