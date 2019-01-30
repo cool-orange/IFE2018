@@ -14,4 +14,4 @@
 * 第12天和第15天
   * 来做一个复杂页面  [作业](https://cool-orange.github.io/IFE2018/08/08.html)
 * 第16天
-  * 开始感受js的乐趣  [作业](https://cool-orange.github.io/IFE2018/09/the joy of Js.html) 
+  * 开始感受js的乐趣  [作业](https://cool-orange.github.io/IFE2018/09/the_joy_of_Js.html) 
