@@ -25,3 +25,4 @@
   * javascript里面的居民们 [作业](https://cool-orange.github.io/IFE2018/13/22-24.html)
 * 第25天到第27天
   * 倒数开始滴滴答答 [作业](https://cool-orange.github.io/IFE2018/14/函数.html)
+  * 正则表达式 [作业](https://cool-orange.github.io/IFE2018/14/正则表达式.html)
