@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		html {
+			font-family: sans-serif;
+		}
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		input[type="text"] {
+			width: 18%;
+    		height: 39.2px;
+    		font-size: 15px;
+    		border: 1px solid #cecece;
+    		border-radius: 3px;
+		}
+		ul {
+			width: 18%;
+			border: 1px solid #cecece;
+			border-radius: 3px;
+			list-style: none;
+			overflow: hidden;
+		}
+		li {
+			width: 100%;
+			padding: 10px;
+			font-size: 14px;
+			color: #9ca19d;	
+		}
+		li:hover {
+			background: #FFE9D8;
+		}
+		.wrapper {
+			margin: 20px ;
+		}
+		.chosed {
+			background: #ffb6c3;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+	    <input id="email-input" type="text" placeholder="  Please enter your preferred email..." autofocus="autofocus">
+	    <ul id="email-sug-wrapper" class="email-sug"></ul>
+	</div>
+
+
+	<script>
+		var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+		var inputDom = document.getElementById("email-input");
+		var lists = document.querySelector("ul");
+		var nowSelectTipIndex = 0;
+		
+		
+
+		//输入框监听事件
+		inputDom.oninput = function() {	
+			if(event.keyCode != 13 || event.keyCode != 38 || event.keyCode != 37){
+				 resetChosed();
+			}
+
+			appendEsw();
+			controlEsw();		
+		}
+          
+		//获取用户输入
+		function getContent() {
+			var content = document.getElementById("email-input").value;
+			return content.trim();
+		}
+		
+		//生成提示框的提示内容
+		function tipContent() {
+			var matchContent;
+			var array = [];
+			var content = getContent();
+			content = htmlencode(content);
+
+			//只获取@前的字符串
+			if(content.indexOf("@") != -1){
+				var end = content.indexOf("@");
+				var matchContent = content.slice(end + 1);   //matchContent:@后匹配的字符串
+				content = content.slice(0,end);
+
+				for(var i=0; i<5; i++){
+					if(postfixList[i].indexOf(matchContent) == 0) {  //筛选匹配字符串的后缀
+						var li=document.createElement("li");
+						li.innerText=content + "@" + postfixList[i];
+						array.push(li);
+					}
+				}
+			} else {
+				
+				for(var i=0; i<5; i++){
+					var li=document.createElement("li");
+					li.innerText=content + "@" + postfixList[i];
+					array.push(li);
+				}
+			}
+			console.log(nowSelectTipIndex,array[nowSelectTipIndex],array.length);
+			array[nowSelectTipIndex].setAttribute("class","chosed");
+			
+			return array;
+		}
+		
+		//提示内容添加email-sug-wrapper
+		function appendEsw() {
+			var array = tipContent();
+			//console.log(array.length);
+			
+			for(var i=lists.childNodes.length-1; i>=0; i--){
+				lists.removeChild(lists.childNodes[i]);
+			}
+
+			for(var i=0; i<array.length; i++){
+				lists.appendChild(array[i]);
+			}
+
+			
+			//li添加鼠标点击监听事件
+			for(var i=0; i<lists.childNodes.length;i++) 
+			{
+				lists.childNodes[i].onclick = function() {
+				    //console.log(htmldecode(this.innerHTML))	;
+					inputDom.value = htmldecode(this.innerText);
+					hideTip();
+					inputDom.focus(); //获取焦点
+				}
+			}
+
+		}
+		
+		//对标签进行转码
+		function htmlencode(html) {	
+			var output;
+			var temp = document.createElement ("div");
+            
+            (temp.textContent != undefined ) ? (temp.textContent = html) : (temp.innerText = html);
+            output = temp.innerHTML;
+            return output;
+		}
+
+		//对标签进行解码
+		function htmldecode(text) {
+			var temp = document.createElement("div");
+			var output;
+			
+			temp.innerHTML = text;
+			output = temp.innerText || temp.textContent;
+			temp = null;
+			return output;
+		}
+
+		//控制email-sug-wrapper显示隐藏 
+		function controlEsw() {	
+			var content = getContent();
+			if(content == "" ) {
+				hideTip();
+			} else {
+				presentTip();
+			}
+		}
+		
+		//隐藏提示框
+		function hideTip() {
+			lists.style.visibility="hidden";
+		}
+		
+		//显示提示框
+		function presentTip() {
+			lists.style.visibility="visible";
+		}
+
+		//监听上下键、回车键的监听事件(基于数据)
+		inputDom.onkeyup = function() {
+			var state;
+
+			if(event.keyCode == "27") {
+				console.log("esc");
+				inputDom.select();
+			}
+
+			//console.log(nowSelectTipIndex);
+			if(event.keyCode == "38"){
+				console.log("up");
+				if(nowSelectTipIndex !=0){
+					nowSelectTipIndex--;
+				} else {
+					nowSelectTipIndex = lists.childNodes.length - 1;
+				}
+				appendEsw();
+				controlEsw();
+
+			}
+
+		    if(event.keyCode == "40"){
+		    	console.log("down");
+		    	if(nowSelectTipIndex != lists.childNodes.length - 1){
+		    		nowSelectTipIndex++;
+				} else {
+					nowSelectTipIndex = 0;
+				}
+				appendEsw();
+				controlEsw();
+
+			}
+			
+			
+
+			if(event.keyCode == "13"){
+				inputDom.value = lists.childNodes[nowSelectTipIndex].innerText;
+				hideTip();
+			}
+
+			
+
+
+		}
+
+		//重置选中状态
+		function resetChosed() {
+			if(nowSelectTipIndex != 0) {
+				nowSelectTipIndex = 0;
+			}
+		}
+		/*inputDom.onkeyup = function() {
+			var index;
+
+			for(var i=0; i<lists.childNodes.length; i++){
+				if(lists.childNodes[i].getAttribute("class") == "chosed"){
+					index = i;
+					break;
+				}
+			}
+
+			//console.log(index,lists);
+			if(event.keyCode == "38"){
+				console.log("up");
+				if(index !=0){
+					lists.childNodes[index].removeAttribute("class");
+					lists.childNodes[index - 1].setAttribute("class","chosed");
+				} else {
+					lists.childNodes[0].removeAttribute("class");
+					lists.childNodes[4].setAttribute("class","chosed");
+				}
+
+			}
+
+		    if(event.keyCode == "40"){
+		    	console.log("down");
+		    	if(index !=4){
+		    		lists.childNodes[index].removeAttribute("class");
+					lists.childNodes[index + 1].setAttribute("class","chosed");
+				} else {
+					lists.childNodes[4].removeAttribute("class")
+					lists.childNodes[0].setAttribute("class","chosed");
+				}
+
+			}
+
+			if(event.keyCode == "13"){
+				inputDom.value = lists.childNodes[index].innerText;
+				hideTip();
+			}
+
+
+		}
+
+		//重置选中状态
+		function resetChosed() {
+			var index;
+			
+			for(let i=0; i<lists.childNodes.length; i++){
+				if(lists.childNodes[i].getAttribute("class") == "chosed")
+					index = i;
+			}
+
+			if(index != 0 && index != undefined){
+				lists.childNodes[index].removeAttribute("class");
+				lists.childNodes[0].setAttribute("class","chosed");
+			} 
+
+		}*/
+		
+	</script>
+
+
+  
