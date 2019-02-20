@@ -26,3 +26,5 @@
 * 第25天到第27天
   * 倒数开始滴滴答答 [作业](https://cool-orange.github.io/IFE2018/14/函数.html)
   * 正则表达式 [作业](https://cool-orange.github.io/IFE2018/14/正则表达式.html)
+* 第28天到第30天
+  * 给爱的人发一封邮件 [作业](https://cool-orange.github.io/IFE2018/15/email.html)
