@@ -1,0 +1,27 @@
+#table-wrapper {
+	margin: 15px;
+	
+}
+table {
+  width: 100%;
+  table-layout: fixed; 
+  text-align: center; 
+  border: 2px solid black;
+  border-radius: 5px;
+
+}
+th {
+	padding: 8px;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}
+td {
+	padding: 5px;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}
+form {
+	margin: 15px;
+
+}
+
