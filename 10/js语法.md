@@ -42,7 +42,7 @@ func(); // 变量在函数体内声明前后均可见
 			}
 			return f2;
 		}
-		var res = f1();
+		var res = func();
 		res(); // 输出1
 		changeNum();
 		res(); // 输出2
