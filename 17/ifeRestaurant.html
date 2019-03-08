@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>restaurant</title>
+</head>
+<body>
+	<script>
+		
+		/*  //ES6的方法
+		class Restaurant {
+			constructor(obj) {
+				this.cash = obj.cash;
+			 	this.seats = obj.seats;
+			 	this.staff = obj.staff;
+			 	this.staff_number = 0; 	
+			}
+
+			hire(staff) {
+				this.staff.push(staff);
+				this.staff_number++;
+			}
+
+			fire(staff) {
+				let len = this.staff.length;
+				for(let i=0;i<len;i++) {
+					if(this.staff[i] == staff) {
+						this.staff.splice(i,1);
+					}
+				}
+				this.staff_number--;
+			}
+		}
+
+		class Stuff {
+			constructor(name,wage,id) {
+				this.name = name;
+				this.wage = wage;
+				this.id = ifeRestaurant.staff_number + 1;
+			}
+		}
+
+		class Cook extends Stuff {
+			constructor(name,wage) {
+				super(name,wage);
+			}
+
+			finish() {
+				;
+			}
+
+		}
+
+		class Waiter extends Stuff {
+			constructor(name,wage) {
+				super(name,wage);
+			}
+
+			finish(obj) {
+				if(typeof(obj) == object){
+					;
+				} else {
+					;
+				}
+			}
+
+		}
+
+		class Customer {
+			constructor() {
+
+			}
+			
+			orderDish() {
+				;
+
+			}
+
+			eat() {
+				;
+			}
+		}
+
+		class vegetables {
+			constructor(name,cost,price) {
+				this.name = name;
+				this.cost = cost;
+				this.price = price;
+			}
+		}*/
+		
+		 //ES5的方法
+		function Restaurant(obj) {
+			 this.cash = obj.cash;
+			 this.seats = obj.eats;
+			 this.staff = obj.staff;
+			 this.staff_number = 0; 	
+		} 	 	
+
+		Restaurant.prototype.hire = function(staff) {
+			this.staff.push(staff);
+			this.staff_number++;
+		}
+
+		Restaurant.prototype.fire = function(staff) {
+			let len = this.staff.length;
+			for(let i=0;i<len;i++) {
+			 	if(this.staff[i] == staff){
+			 		this.staff.splice(i,1);
+			 	}
+			 }
+			 this.staff_number--;
+
+		}
+
+		function Staff(obj) {
+			this.id = ifeRestaurant.staff_number + 1;
+			this.name = obj.name;
+			this.wage = obj.wage;
+			this.finish = function() {
+				;
+			}
+		}
+
+		function Waiter(name,wage) {
+			Staff.call(this, {
+				name: name,
+				wage: wage
+			})
+			this.finish = function(obj) {
+				if(typeof(obj) == object){
+
+				} else {
+
+				}
+			}
+		}
+
+		function Cook(name,wage) {
+			Staff.call(this, {
+				name: name,
+				wage: wage
+			})
+			this.finish = function() {
+
+			}
+
+		}
+
+		function Customer(menu) {
+			this.menu = menu;
+			this.orderMenu = function(menu) {
+	
+			}
+			
+			this.eat = function() {
+
+			}
+
+		}
+
+		function vegetables(obj) {
+			this.name = obj.name;
+			this.cost = obj.cost;
+			this.price = obj.price;
+
+		}
+
+
+		var ifeRestaurant = new Restaurant({
+		    cash: 1000000,
+		    seats: 20,
+		    staff: []
+		});
+		
+		var newCook = new Cook("Tony", 10000);
+		ifeRestaurant.hire(newCook);
+
+		console.log(ifeRestaurant.staff);
+
+		ifeRestaurant.fire(newCook);
+		console.log(ifeRestaurant.staff);
+
+	</script>
+
+</body>
+</html>
