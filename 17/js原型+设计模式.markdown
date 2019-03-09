@@ -133,4 +133,43 @@ class Stu extends Person {
 }
 //子类必须在constructor中调用super方法，否则新建实例报错
 ```
+* js立即函数
+	* (function(){ ... }()) 和 (function(){ ...})( )等价.
+* js的设计模式
+	* 单例模式:保证一个类仅有一个实例，并且提供唯一一个访问它的全局访问点。	
+	```js
+	var single = function(name) {
+		this.name =name;
+	}
+	single.Mode = (function() {  //利用闭包特性建立单例模式  
+		var flag;
+		return function(name) {
+			if(!flag){
+				flag = new single(name);
+			}
+			return flag;
+		}
+	})();
+	var a = single.Mode('orange');
+	//实现模块通信(学校回家)
+	var home = (function() {
+		var road;
+		function construct(bike) {
+			this.transportation = bike;
+		}
+		return function(bike) {
+			if(!road){
+				road = new construct(bike); 
+			}
+			return road;
+		}
+	})();
+	var school = {
+		goback:function(transportation){
+			var transportation = home(transportation);
+			console.log(transportation.transportation);
+		}
+	}
+	school.goback('bike');
+	```
  

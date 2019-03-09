@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ifeRestaurant</title>
+	<style>
+		p {
+			text-align: center;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<p>单例模式实现餐厅流程</p>
+	<p>详情看console</p>
+	<script>
+		
+		var Cook = (function() {
+			var instance = null;
+			function newCook(name,salary) {
+				this.name = name;
+				this.salary = salary;
+			}
+			var cook = {
+				constructor: function(name,salary) {
+					if(!instance) {
+						instance = new newCook(name,salary);
+					}
+					return instance;
+				},
+				makeDish: function(dishName) {
+					console.log("厨子: 知道啦，别光催，等一会...");
+					console.log("厨子:小二,"+dishName+"好啦!");
+				}
+			}
+			return cook;
+		})();
+		
+		var Waiter = (function() {
+			var instance = null;
+			function newWaiter(name,salary) {
+				this.name = name;
+				this.salary = salary;
+			}
+
+			var waiter = {
+				constructor: function(name,salary) {
+					if(!instance) {
+						instance = new newWaiter(name,salary);
+					}
+					return instance;
+				},
+				orderDish: function(obj) {
+					let dish = obj.orderDish();
+					console.log("客官,要点哪样菜？(抱歉，只能限点一份啊)");
+					console.log("客官: " + dish.name);
+					console.log("小二：好嘞！里面的厨子快点上菜啊！");
+					Cook.makeDish(dish.name);
+					console.log("小二：客官,您的"+dish.name);
+				}
+			}
+			return waiter;
+		})();
+
+		function Customer(dish) {
+			this.dish = dish;
+		}
+		Customer.prototype.orderDish = function() {
+			return this.dish;
+		}
+		Customer.prototype.finishDish = function() {
+			console.log("客观:小二,快来结账,我有急事");
+		}
+
+		function Dish(name,price) {
+			this.name = name;
+			this.price = price;
+		}
+
+		var menu = ["西湖醋鱼","东坡肉","清炒时蔬"];
+		var queue = []; //顾客队列
+		
+		var newCook = Cook.constructor("Tom",5000);
+		var newWaiter = Waiter.constructor("Alice",5000);
+
+		for(let i=0;i<3;i++) {
+			let num = Math.floor(Math.random() * 3);
+			let price = Math.floor(Math.random()*30);
+			let dish = new Dish(menu[num],price);
+			let customer = new Customer(dish);
+			queue.push(customer);
+		}
+
+		for(let i=0;i<3;i++) {
+			console.log("小二：来客人了 ！！");
+			let customer = queue.pop();
+			Waiter.orderDish(customer);
+			customer.finishDish();
+			console.log("小二：得嘞,送客！！");
+			console.log("\n");
+		}
+
+
+
+	</script>
+
+</body>
+</html>
