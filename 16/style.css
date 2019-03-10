@@ -23,4 +23,17 @@ form {
 	margin: 15px;
 
 }
-
+svg{
+	width: 700px;
+	height: 400px;
+}
+text {
+	font-size: 12px;
+}
+#graph {
+	display: flex;
+	flex-flow: row;
+}
+#barGraph, #polylineGraph {
+	flex: 1;
+}

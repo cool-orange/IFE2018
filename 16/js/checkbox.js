@@ -1,3 +1,47 @@
+//监听checkbox选项改变更新表格和图表
+function changeData() {
+	let data = getData();
+	clearTable();
+	renderForm(data);
+	drawBarGraph(data);
+	drawLineGraph(data);
+}
+
+//获取checkbox筛选后数据
+function getData() {	
+	let res = [];
+	let strR = [];
+	let strP = [];
+
+	strR = getValue(regionsT);
+	strP = getValue(productsT);
+
+	for(let i=0;i<sourceData.length;i++) {
+		if(strR.indexOf(sourceData[i].region) != -1 ){
+			res.push(sourceData[i]);
+			if(strP.length!=0 && strP.indexOf(sourceData[i].product) == -1)
+				res.pop();
+		}
+		if(strP.indexOf(sourceData[i].product)!=-1 ){
+			res.push(sourceData[i]);
+			if(strR.length!=0 && strR.indexOf(sourceData[i].product) == -1)
+				res.pop();
+		}
+	}
+	return res;
+}
+
+//获取checked为true的value值
+function getValue(checkboxs) {
+	let res = [];
+	for(let i=0;i<checkboxs.length;i++) {
+		if(checkboxs[i].checked == true) {
+			res.push(checkboxs[i].value);
+		}
+	}
+	return res;
+}
+
 //全选checkbox逻辑
 function checkedAll(checkboxs) {
     let len = checkedLength(checkboxs);
@@ -58,3 +102,4 @@ function generateCheck(wrapper,arr,str) {
 		}
 	}
 }
+

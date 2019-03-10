@@ -1,50 +1,9 @@
-//监听checkbox选项改变
-function changeData() {
-	let data = getData();
-	clearTable();
-	renderForm(data);
-}
-
-//清除数据
+//清除表格数据
 function clearTable() {
 	let table =document.querySelector("table");
 	table_wrapper.removeChild(table);
 }
 
-//获取checked为true的value值
-function getValue(checkboxs) {
-	let res = [];
-	for(let i=0;i<checkboxs.length;i++) {
-		if(checkboxs[i].checked == true) {
-			res.push(checkboxs[i].value);
-		}
-	}
-	return res;
-}
-
-//获取筛选后数据
-function getData() {	
-	let res = [];
-	let strR = [];
-	let strP = [];
-
-	strR = getValue(regionsT);
-	strP = getValue(productsT);
-
-	for(let i=0;i<sourceData.length;i++) {
-		if(strR.indexOf(sourceData[i].region) !=-1 ){
-			res.push(sourceData[i]);
-			if(strP.length!=0 && strP.indexOf(sourceData[i].product) == -1)
-				res.pop();
-		}
-		if(strP.indexOf(sourceData[i].product)!=-1 ){
-			res.push(sourceData[i]);
-			if(strR.length!=0 && strR.indexOf(sourceData[i].product) == -1)
-				res.pop();
-		}
-	}
-	return res;
-}
 
 //渲染新表格
 function renderForm(data) {
@@ -72,7 +31,7 @@ function renderForm(data) {
 		str[0] = temp;
 
 		for(let i=0;i<str.length;i++){
-			console.log(str[i]);
+			//console.log(str[i]);
 			var th = document.createElement("th");
 			th.innerHTML = str[i];
 			tr.appendChild(th);
