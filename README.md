@@ -29,6 +29,6 @@
 * 第28天到第30天
   * 给爱的人发一封邮件 [作业](https://cool-orange.github.io/IFE2018/15/email.html)
 * 第31天到第36天
-  * 精明的小卖家(一) [作业](https://cool-orange.github.io/IFE2018/16/smartSeller.html)
+  * 精明的小卖家 [作业](https://cool-orange.github.io/IFE2018/16/smartSeller.html)
 * 第42天到第46天
   * 单例模式实现餐厅 [作业](https://cool-orange.github.io/IFE2018/17/singleMode.html)
