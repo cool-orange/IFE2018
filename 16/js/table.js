@@ -12,6 +12,7 @@ function renderForm(data) {
 	let tbody = document.createElement("tbody");
 	let tr = document.createElement("tr");
 	let str = ["商品","地区","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"];
+	let tds = table_wrapper.getElementsByTagName("td");
 
 	table.appendChild(thead);
 	table.appendChild(tbody);
@@ -93,5 +94,4 @@ function renderForm(data) {
 	}
 
 }
-
 

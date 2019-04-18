@@ -61,6 +61,22 @@ function checkedLength(checkboxs) {
 	return length; 
 }
 
+/*更改checkbox的状态*/
+function changeCheckBox(region,product) {
+	for(let i=0;i<regionsT.length;i++) {
+		if(regionsT[i].value == region)
+			regionsT[i].checked = true;
+		else
+			regionsT[i].checked = false;
+	}
+	for(let i=0;i<productsT.length;i++) {
+		if(productsT[i].value == product)
+			productsT[i].checked = true;
+		else
+			productsT[i].checked = false;
+	}
+}
+
 //生成checkboxs
 function generateCheck(wrapper,arr,str) {
 	let html1 = `

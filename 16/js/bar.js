@@ -1,6 +1,6 @@
 //绘制柱状图
 function drawBarGraph(data) {
-	console.log(data);
+	//console.log(data);
 	let bar = document.getElementById('bar');
 	bar.innerHTML = '';
 
