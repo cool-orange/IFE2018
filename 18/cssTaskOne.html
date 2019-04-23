@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css transition one</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+		}
+		html,body {
+			width: 100%;
+			height: 100%;
+		}
+		button {
+			width: 80px;
+			border: 1px solid grey;
+			border-radius: 5px;
+			background-color: transparent;
+		}
+		.wrapper {
+			width: 100%;
+			height: 100%;
+		}
+		.content {
+			position: relative;
+			margin: 0 auto;
+			width: 50%;
+			height: 50%;
+			text-align: center;
+		}
+		span {
+			margin-bottom: 5px;
+			color: black;
+			transition: all 1s ease 0.5s;
+		}
+		.line {
+			margin: 5px auto 10px auto;
+			width: 0;
+			height: 2px;
+			background-color: blue;
+			transition: all 1s ease 0.5s; 
+		}
+		.lineActive {
+			width: 73px;		
+		}
+		.textActive {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="content">
+			<div class="text">
+				<span>前端学院<div class="line"></div></span>
+			</div>
+			
+			<button>切换样式</button>
+		</div>
+	</div>
+
+	<script>
+		var btn = document.getElementsByTagName('button')[0];
+		var content = document.querySelector('.content'),
+			text = document.querySelector('span'),
+			line = document.querySelector('.line');
+		var contentHeight = content.offsetHeight;
+		content.style.top = "calc(50% - " + contentHeight/2 + "px)";
+		btn.onclick = function() {
+			text.classList.toggle("textActive");
+			line.classList.toggle("lineActive");
+		}   
+	</script>
+
+</body>
+</html>
