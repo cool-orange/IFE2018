@@ -32,3 +32,6 @@
   * 精明的小卖家 [作业](https://cool-orange.github.io/IFE2018/16/smartSeller.html)
 * 第42天到第46天
   * 单例模式实现餐厅 [作业](https://cool-orange.github.io/IFE2018/17/singleMode.html)
+
+#### 设计师学院（可预览）
+* 简单的菜单动画 [作业](https://cool-orange.github.io/IFE2018/18/cssTaskOne.html)
