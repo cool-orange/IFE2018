@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css transtion Four</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+		}
+		html,body {
+			width: 100%;
+			height: 100%;
+		}
+		 .wrapper {
+			position: relative;
+			margin: 0 auto;
+			width: 300px;
+			height: 400px;
+			top: 50%;
+			transform: translate(0px,-200px);
+		}
+		.card {
+			width: 100%;
+			height: 100%;
+			/* 定义元素距离视图的距离 */
+			perspective: 500;
+			-webkit-perspective: 500;
+		}
+		.front , .back{
+			position: absolute;
+			width: 250px;
+			height: 350px;
+			top: calc(50% - 175px);
+			left: calc(50% - 125px);
+			background-size: cover;
+			transition: all 1s ease-in-out .1s;
+			 /* 隐藏被旋转的div的背面 */
+			backface-visibility: hidden;
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			-ms-backface-visibility: hidden;
+			transform-style: preserve-3d;
+			-webkit-transform-style: preserve-3d;
+		}
+		.front {
+			transform: rotateY(-180deg);
+			background: url('./反面.jpg') no-repeat center;
+		}
+		.back {
+			background: url('./正面.jpg') no-repeat center;
+		}
+		.card:hover .back{
+			transform: rotateY(180deg);
+		} 
+		.card:hover .front {
+			transform: rotateY(0deg);
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="card">
+			<div class="front"></div>
+			<div class="back"></div>
+		</div>
+	</div>
+	
+
+
+</body>
+</html>
