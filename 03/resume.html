@@ -1,124 +1,138 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width" initial-scale=1.0>
 
-    <title>Resume</title>
-    <style>
-    	* {
-    		margin: 0px;
-    		padding: 0px;
-    		box-sizing: border-box;
-    	}
-    	html,body {
-    		height: 100%;
-    		width: 100%;
-            min-width: 1005px;
-    		font-family: '微软雅黑';
-    		overflow-y: hidden;
-    	}
-    	@font-face {
-    		font-family:SentyDiary;
-    		src:url('./fonts/SentyDiary.ttf')format('truetype');
-    	}
-    	li {
-            font-size: 15px;
-    		list-style: none;
-    	}
-    	a {
-    		text-decoration: none;
-    	}
-    	.wrap-one {
-    		margin : 0 auto;
-    		margin-top:50px;
-    		width: 35%;
-    		height:40%;
-    		border: 1px solid black;
-    		border-bottom: none;
-    		border-radius: 10px 10px 0 0;
-    	}
-        .wrap-two {
-            position: relative;
-            margin : 0 auto;
-            margin-top:50px;
-            width: 35%;
-            height:40%;
-            border: 1px solid black;
-            border-top: none;
-            border-radius: 0 0 10px 10px;
-        }
-    	.wrap-one p {
-    		padding: 10px;
-    		text-align: center;
-    	}
-    	.header {
-    		margin: 0 auto;
-    		position: relative;
-    		width: 90%;
-    		padding-bottom: 20px;
-    		border-bottom: 1px solid black;
-    	}
-    	.header-avator {
-    		height: 120px;
-    	}
-    	.header-title h1 {
-    		padding: 15px;
-    		font-size: 25px;
-    		font-weight: 500;
-    		display:inline-block;
-    	}
-    	.header-title span:nth-child(2) {
-    		transform: translateX(50%);
-    		font-family: SentyDiary; 
-    	}
-    	.header-avator img {
-    		float: left;
-    		width: 120px;
-    		height: 120px;
-    		display: inline-block;	
-    	}
-    	.header-avator ul {
-    		padding-top: 25px;
-    		line-height: 30px;
-    	}
-        .wrap-two span:nth-last-child(1) {
-            position: absolute;
-            bottom: 5px;
-            left: 45%;
-            font-size: 12px;
-        }
-    </style>
+	<title>简历</title>
+	<link rel="stylesheet" href="./index.css">
+	<style>
+		
+	</style>
 </head>
+
 <body>
-	<div class="wrap-one">
-		<div class="header">
-			<div class="header-title">
-				<h1>库橙的简历</h1>
-				<span id="Greetings">不要熬夜</span>
+	<main class="container">
+		<header class="header">
+			<h1>RESUME</h1>
+			<h1 class="profession">前端工程师</h1>
+			<div class="greetings"></div>
+		</header>
+		<div class="avatar">
+			<img src="./img/avator.jpg" alt="头像">
+		</div>
+		<div class="info">
+			<div class="load">
+				<div class="circle"></div>
+				<div class="circle"></div>
+				<div class="circle"></div>
 			</div>
-			<div class="header-avator">
-				<img src="https://s1.ax1x.com/2018/06/06/C7Hzm8.jpg" alt="orange">
-				<ul>
-					<li>姓名：库橙</li>
-					<li>电话：call me now</li>
-					<li>GitHub：<a href="https://github.com/cool-orange/MYIFE">github.com/cool-orange/MYIFE</a></li>
-				</ul>
+			<div class="experience">
+				<h2>成长经历</h2>
+				<div class="timeline">
+					<div class="card">
+						<header class="card-header">
+							<span class="card-title">基本信息</span>
+							<span class="timeline-point"></span>
+						</header>
+						<section class="card-info">
+							<div class="card-item">
+								<img src="./img/user.png" alt="姓名">
+								<span>某橙</span>
+							</div>
+							<div class="card-item">
+								<img src="./img/phonecall.png" alt="电话">
+								<span>158-5715-7857</span>
+							</div>
+							<div class="card-item">
+								<img src="./img/region.png" alt="地址">
+								<span>浙江杭州</span>
+							</div>
+							<div class="card-item">
+								<img src="./img/time.png" alt="时间">
+								<span>1997.5.5</span>
+							</div>
+						</section>
+					</div>
+					<div class="card">
+						<header class="card-header">
+							<span class="card-title">专业技能</span>
+							<span class="timeline-point"></span>
+						</header>
+						<section class="card-info">
+							<div class="card-item">
+								<img src="./img/html.png" alt="html">
+								<div class="card-bar">
+									<div class="bar-load"></div>
+								</div>
+							</div>
+							<div class="card-item">
+								<img src="./img/css.png" alt="css">
+								<div class="card-bar">
+									<div class="bar-load"></div>
+								</div>
+							</div>
+							<div class="card-item">
+								<img src="./img/js.png" alt="js">
+								<div class="card-bar">
+									<div class="bar-load"></div>
+								</div>
+							</div>
+							<div class="card-item">
+								<img src="./img/vuejs.png" alt="vue">
+								<div class="card-bar">
+									<div class="bar-load"></div>
+								</div>
+							</div>
+						</section>
+					</div>
+					<div class="card">
+						<header class="card-header">
+							<span class="card-title">教育背景</span>	 
+							<span class="timeline-point"></span>
+						</header>
+						<section class="card-info">
+							<div class="card-item">
+								<img src="./img/international.png" alt="学校">
+								<span>2019 北京化工大学</span>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+			<div class="more">
+				<span>更多 >></span>
 			</div>
 		</div>
-		<p>大三在校学生，想在前端行业堆积木，期待新想事橙😃</p>	
-	</div>
-    <div class="wrap-two">
-        <span>© 库橙</span>
-    </div>
-	<script>
-		var CurrentDate=new Date();
-		var hour=CurrentDate.getHours();
-		var Greetings='';
-		Greetings=hour>=6&&hour<12?'早上好': hour>=12&&hour<18?'下午好':hour>=18&&hour<22?'晚上好':'不要熬夜';
-		document.getElementById('Greetings').innerHTML=Greetings;
-	</script>
+		<footer class="footer">
+			<p>Copyright © 某橙</p>
+		</footer>
+		<main>
+			<script src="./jquery-3.4.1.min.js"></script>
+			<script>
+			var flag = true
+			$(document).ready(function(){
+				$(".more").click(function(){
+					$(".experience").slideToggle("slow");
+					if(flag) {
+						$(this).children('span:first')[0].innerText = '收起 >>'
+						flag = false
+					} else {
+						$(this).children('span:first')[0].innerText = '更多 >>'
+						flag = true
+					}
+					
+				});
+				var CurrentDate = new Date()
+				var hour = CurrentDate.getHours()
+				var Greetings = ''
+				Greetings = hour >= 6 && hour < 12 ? '早上好' : hour >= 12 && hour < 18 ? '下午好' : hour >= 18 && hour < 22 ? '晚上好' : '不要熬夜'
+				$('.greetings').text(Greetings)
+			})
+			</script>
 
 </body>
+
 </html>
