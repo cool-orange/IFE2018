@@ -223,7 +223,7 @@ li {
 
 .timeline .card:nth-child(2) .card-info .card-item {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end ;
   align-items: center;
 }
 
@@ -237,7 +237,7 @@ li {
 
 .timeline .card .card-info .card-bar {
   display: flex;
-  width: 80%;
+  width: 50%;
   background-color: #313638;
   height: 2px;
 }
